@@ -1,0 +1,10 @@
+numpy
+pandas
+pyarrow
+scipy
+python-igraph
+networkx
+scikit-learn
+matplotlib
+tqdm
+pytest

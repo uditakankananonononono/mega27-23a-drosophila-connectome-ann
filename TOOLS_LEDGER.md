@@ -1,0 +1,15 @@
+# TOOLS LEDGER — genuinely executed external research tools (strict standard: only tools actually run in the pipeline appear here)
+
+## Executed so far
+1. curl (Zenodo/Codex data retrieval)
+2. md5sum (checksum verification)
+3. Python 3.10 runtime
+4. numpy (array ops)
+5. pandas (table ops)
+6. pyarrow.feather (memory-mapped column reads)
+7. python-igraph 1.0.0 (triad census, rewiring, ER nulls, communities)
+8. networkx (brute-force triad reference in tests)
+9. pytest (test suite)
+
+## Planned (locked in PREREGISTRATION.md; added here only after actual execution)
+scipy stats (Wilcoxon), scikit-learn, torch (Stage D ANN training), matplotlib (figures), ...

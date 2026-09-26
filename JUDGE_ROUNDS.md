@@ -636,3 +636,5 @@ to:
 6. "Rich-club needs null comparison + preregistered thresholds" -> thresholds already locked (degree percentiles); ADDED rich-club curve vs DP-null curves (AMENDMENT-2 item A6).
 7. "Louvain needs stability analysis" -> 25 seeded restarts already locked; ADDED partition-stability statistic (variation of information across restarts) (AMENDMENT-2 item A7).
 8. "No computation in Stage A; title requires transfer experiments" -> Stage C/D are exactly that; no change beyond item 1.
+
+> RULE (user, 2026-09-26 5:00 PM IST): a round counts toward the 10-round minimum ONLY if its output is folded back as a concrete NOVELTY improvement (novel angle, method, analysis, or feature added in response). Each round logs: critique AND the novelty change it produced. Round 1 novelty changes: N3 region-preserving null family (new method), per-motif explicit computational hypotheses (new analysis requirement), extended-null sensitivity arm (new analysis) - see AMENDMENT-2.

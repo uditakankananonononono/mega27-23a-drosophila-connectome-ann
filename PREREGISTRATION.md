@@ -90,3 +90,14 @@ Project-level success = at least 2 of {G1,G2,G3} passed with honest accounting. 
 ## 9. Environment
 
 Python 3.10, numpy/pandas/pyarrow/networkx/scikit-learn (+ exact pinned versions in requirements.txt at analysis time). Seeds: master seed 23, per-experiment seeds derived deterministically and logged.
+
+---
+
+## AMENDMENT-1 (2026-09-26 4:11 PM IST) — user standing rules, verified verbatim
+
+User WhatsApp 4:11:18 PM (verified verbatim in channel history): "...ask CHATGPT about more ideas like this that are highly advanced and can win isef. complete each project till now that i have given except the ones i asked to delete. and never count a negative as a result of a research project. make sure you have minimum 10 judging rounds about weaknesses in the project and what more to include to make it better."
+
+Changes (original locked text above is preserved; this amendment governs where they conflict):
+1. Section 6 "Failure of all gates = negative result ... one documented redirect cycle" is SUPERSEDED: failed gates trigger documented pivot cycles, and the project continues until a useful finding is reached. Honest negatives remain documented in the paper, but a negative result does not count as the project's result and does not end the project.
+2. ChatGPT judge/ideation rounds are now part of this project: MINIMUM 10 rounds focused on weaknesses and missing content, each documented (round, critique summary, changes made) in JUDGE_ROUNDS.md. Statistical gates, null models, and locked analysis choices remain unchanged and are NOT influenced by judge suggestions after outcomes are seen; judges may only critique presentation, completeness, additional controls, and future pivots - never post-hoc gate redefinition.
+3. The project goes to full completion (paper per PAPER_REQUIREMENTS.md + Drive deliverables).

@@ -43,7 +43,7 @@ def dp_rewire_np(pre, post, n_nodes, n_swaps, seed, batch=400_000, rebuild_at=20
     accepted = 0
     while accepted < n_swaps:
         want = n_swaps - accepted
-        b = min(batch, max(2 * want, 4096))
+        b = min(batch, max(2 * want, 4096), max(E // 2, 4096))
         i = rng.integers(0, E, b); j = rng.integers(0, E, b)
         kp = i != j
         i, j = i[kp], j[kp]

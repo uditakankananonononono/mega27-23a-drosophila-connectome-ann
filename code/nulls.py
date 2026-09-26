@@ -41,6 +41,7 @@ def dp_rewire_np(pre, post, n_nodes, n_swaps, seed, batch=400_000, rebuild_at=20
     base = np.sort(pre * n_nodes + post)
     removed = np.empty(0, dtype=np.int64); added = np.empty(0, dtype=np.int64)
     accepted = 0
+    idle = 0
     while accepted < n_swaps:
         want = n_swaps - accepted
         b = min(batch, max(2 * want, 4096), max(E // 2, 4096))
@@ -77,6 +78,10 @@ def dp_rewire_np(pre, post, n_nodes, n_swaps, seed, batch=400_000, rebuild_at=20
         added = np.sort(np.concatenate([added, new]))
         post[idx_i], post[idx_j] = post[idx_j].copy(), post[idx_i].copy()
         accepted += take
+        idle = 0 if take > 0 else idle + 1
+        if idle >= 200:
+            # group exhausted: no valid swaps remain; return partially rewired (logged by caller)
+            break
         if len(removed) >= rebuild_at:
             keep = ~_in_sorted(base, removed)
             base = np.sort(np.concatenate([base[keep], added]))

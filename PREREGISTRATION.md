@@ -115,3 +115,14 @@ Stage A outcomes are not yet final/committed at amendment time (null families st
 - A5. Language: "predicted-neurotransmitter-associated organization" replaces "E/I organization" everywhere; no functional excitation/inhibition claim is made from predictions.
 - A6. Rich-club: observed curve now compared against DP-null rich-club curves (same cutoffs).
 - A7. Louvain: partition stability across the 25 seeded restarts quantified (variation of information); single-partition claims prohibited.
+
+---
+
+## AMENDMENT-3 (2026-09-26 ~6:20 PM IST) — seeded null implementations (pre-results)
+
+Null-family z-scores/FDR had NOT been computed or read when this was written; only observed-graph stats and raw null census counts existed. The v3 runner was found to IGNORE per-null seeds in BOTH families (seed arguments computed but never passed; igraph's global RNG used), contradicting this document's master-seed reproducibility lock, and to need ~750s per DP null. Repairs:
+
+- A8. Null generation moved to code/nulls.py (numpy, per-null seeds from SeedSequence(master_seed)); null DEFINITIONS unchanged (N1 DP: 10 successful simple endpoint swaps/edge; N2 ER: directed G(n,m)). DP rewire implementation is batched with conservative rejection (documented in code/nulls.py docstring). Verified: unit tests (exact degree preservation, simplicity, no loops, seed reproducibility - tests/test_nulls.py) and a real-graph benchmark (82.8s per 27M-swap rewire; invariants hold). Distributional cross-check vs igraph-rewire nulls (numpy DP census vs the 5 interim igraph DP null censuses) is PENDING and tracked as a Stage A finalization gate alongside the igraph census cross-check.
+- A9. The interim unseeded nulls (100 ER + 5 DP) are DISCARDED, never analyzed; both families are rerun seeded. The v3 checkpoint is retained locally as stage_a_results_v3_unseeded.json for audit.
+- A10. Observed Louvain modularity is recomputed with a seeded RNG; A7's 25-restart stability quantification follows Stage A.
+- A11. Two-sided normal-approximation p-values from z, BH q over the 16-class universe per family (formalizes A4 for Stage A).

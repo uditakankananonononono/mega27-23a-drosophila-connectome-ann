@@ -101,3 +101,17 @@ Changes (original locked text above is preserved; this amendment governs where t
 1. Section 6 "Failure of all gates = negative result ... one documented redirect cycle" is SUPERSEDED: failed gates trigger documented pivot cycles, and the project continues until a useful finding is reached. Honest negatives remain documented in the paper, but a negative result does not count as the project's result and does not end the project.
 2. ChatGPT judge/ideation rounds are now part of this project: MINIMUM 10 rounds focused on weaknesses and missing content, each documented (round, critique summary, changes made) in JUDGE_ROUNDS.md. Statistical gates, null models, and locked analysis choices remain unchanged and are NOT influenced by judge suggestions after outcomes are seen; judges may only critique presentation, completeness, additional controls, and future pivots - never post-hoc gate redefinition.
 3. The project goes to full completion (paper per PAPER_REQUIREMENTS.md + Drive deliverables).
+
+---
+
+## AMENDMENT-2 (2026-09-26 ~4:15 PM IST) — judge round 1 design repairs (pre-results)
+
+Stage A outcomes are not yet final/committed at amendment time (null families still computing; no results reviewed). Judge round 1 (JUDGE_ROUNDS.md) surfaced design weaknesses; repairs below are locked BEFORE results are read. Original locked text preserved.
+
+- A1. THIRD NULL FAMILY N3 (region-preserving): rewiring that preserves each neuron's in/out degree AND the primary-neuropil identity of both endpoints. Rationale (judge): degree-only shuffles destroy biological organization and can manufacture enrichment. N3 is applied to the whole-brain graph and within Stage B. Limitation stated honestly: the v783 static release carries no soma coordinates, so a truly spatial-coordinate null is impossible with current data; N3 is the region-level proxy. Enrichment claims that survive N1+N2 but not N3 are reported as "organization-dependent", separately from claims surviving all three.
+- A2. Per-motif computational hypotheses: Stage C must state, for EACH candidate structure taken from B4, an explicit falsifiable computational hypothesis (what problem the structure solves) before its ANN variant is trained.
+- A3. Null-count sensitivity: primary claims stay at the locked N=100 per family. An extended sensitivity arm (up to 1000 ER nulls; DP as compute allows) checks z-score stability for the key enriched classes; reported as sensitivity, not as a moved gate.
+- A4. BH universe made explicit: FDR q=0.05 across the 16 motif classes within the whole-brain family; Stage B per-neuropil tests form a separate family; reciprocity, rich-club, modularity and NT-associated statistics are descriptive (with null comparisons) and carry no FDR claim.
+- A5. Language: "predicted-neurotransmitter-associated organization" replaces "E/I organization" everywhere; no functional excitation/inhibition claim is made from predictions.
+- A6. Rich-club: observed curve now compared against DP-null rich-club curves (same cutoffs).
+- A7. Louvain: partition stability across the 25 seeded restarts quantified (variation of information); single-partition claims prohibited.

@@ -76,8 +76,17 @@ def main():
     ss = np.random.SeedSequence(MASTER_SEED)
     seeds = [int(s.generate_state(1)[0]) for s in ss.spawn(2 * N_NULL)]
 
-    null2 = []
-    for i in range(N_NULL):
+    prev = {}
+    if os.path.exists(CKPT):
+        try:
+            prev = json.load(open(CKPT))
+        except Exception:
+            prev = {}
+    # resume: reuse only nulls from the same seeded runner version
+    null2 = list(prev.get("null_er", [])) if prev.get("params", {}).get("runner") == "v4" else []
+    if null2:
+        print(f"resuming: {len(null2)} ER nulls from checkpoint", flush=True)
+    for i in range(len(null2), N_NULL):
         p2, q2 = nulls.er_null_np(n, E, seed=seeds[N_NULL + i])
         null2.append(fast_census.census(csr_from_arrays(p2, q2, n)))
         if (i + 1) % 10 == 0:
@@ -86,8 +95,10 @@ def main():
     res["null_er"] = null2; save(res)
     print(f"ER family done [{time.time()-t0:.0f}s]", flush=True)
 
-    null1 = []
-    for i in range(N_NULL):
+    null1 = list(prev.get("null_dp", [])) if prev.get("params", {}).get("runner") == "v4" else []
+    if null1:
+        print(f"resuming: {len(null1)} DP nulls from checkpoint", flush=True)
+    for i in range(len(null1), N_NULL):
         p1, q1 = nulls.dp_rewire_np(src, dst, n, 10 * E, seed=seeds[i])
         null1.append(fast_census.census(csr_from_arrays(p1, q1, n)))
         res["null_dp"] = null1; save(res)

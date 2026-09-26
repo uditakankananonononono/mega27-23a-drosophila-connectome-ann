@@ -33,6 +33,10 @@ def csr_from_arrays(pre, post, n):
 def main():
     t0 = time.time()
     os.makedirs(OUT, exist_ok=True)
+    import hashlib, scipy, subprocess
+    prov = dict(git=subprocess.run(["git","rev-parse","HEAD"],capture_output=True,text=True,cwd=os.path.dirname(__file__)).stdout.strip(),
+                numpy=np.__version__, scipy=scipy.__version__,
+                edges_sha256=hashlib.sha256(open(os.path.join(OUT,"edges_ge5.parquet"),"rb").read()).hexdigest())
     edges = pl.read_parquet(os.path.join(OUT, "edges_ge5.parquet"))
     nodes = pl.concat([edges["pre_pt_root_id"], edges["post_pt_root_id"]]).unique().to_numpy()
     index = {r: i for i, r in enumerate(nodes)}
@@ -59,7 +63,7 @@ def main():
         except Exception:
             prev = {}
     resume_ok = prev.get("params", {}).get("runner") == "v4"
-    res = dict(params=dict(threshold=5, n_null=N_NULL, master_seed=MASTER_SEED,
+    res = dict(provenance=prov, params=dict(threshold=5, n_null=N_NULL, master_seed=MASTER_SEED,
                            n_nodes=n, n_edges=E, runner="v4",
                            nulls_impl="code/nulls.py seeded numpy (AMENDMENT-3)",
                            census_impl="fast_census exact-rational (validated vs igraph: 166 synthetic cases; real-graph cross-check pending)"))
@@ -85,6 +89,7 @@ def main():
 
     ss = np.random.SeedSequence(MASTER_SEED)
     seeds = [int(s.generate_state(1)[0]) for s in ss.spawn(2 * N_NULL)]
+    res["params"]["seed_list"] = seeds
 
     # resume: reuse only nulls from the same seeded runner version
     null2 = list(prev.get("null_er", [])) if resume_ok else []

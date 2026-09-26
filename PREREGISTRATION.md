@@ -126,3 +126,15 @@ Null-family z-scores/FDR had NOT been computed or read when this was written; on
 - A9. The interim unseeded nulls (100 ER + 5 DP) are DISCARDED, never analyzed; both families are rerun seeded. The v3 checkpoint is retained locally as stage_a_results_v3_unseeded.json for audit.
 - A10. Observed Louvain modularity is recomputed with a seeded RNG; A7's 25-restart stability quantification follows Stage A.
 - A11. Two-sided normal-approximation p-values from z, BH q over the 16-class universe per family (formalizes A4 for Stage A).
+
+---
+
+## AMENDMENT-4 (2026-09-26 ~8:25 PM IST) — judge round 2 repairs (pre-results)
+
+Stage A null families still computing; no z-scores/FDR read. Judge round 2 (JUDGE_ROUNDS.md, conv 6ab7dbde) accepted in part as follows. Acceptance decisions are the builder's, logged per the standing judge rules.
+
+- A12. TIERED INFERENCE HIERARCHY (novelty/rigor): Tier 1 confirmatory = 16-class census, threshold 5, whole brain, N1+N2+N3, BH per AMENDMENT-2 A4. Tier 2 robustness = threshold sweep {1,10,50}, per-neuropil stratification, sampler-convergence and extended-null sensitivity. Tier 3 exploratory = predicted-neurotransmitter-associated and cell-type analyses. Only Tier 1 supports confirmatory claims; Tier 2/3 reported as such.
+- A13. NULL CONVERGENCE DIAGNOSTIC (novel method): code/nulls_convergence.py — DP chains run to 20 swaps/edge with census snapshots at 0/1E/2E/5E/10E/20E; locked plateau criterion: relative change 10E->20E < 0.02 on every class with count(20E) >= 100, on 3 seeded chains. If violated, N1 swaps/edge increases via new amendment. This converts "10 swaps/edge" from an arbitrary stopping rule into a tested mixing claim. Run as a Stage A finalization gate.
+- A14. LANGUAGE: N3 renamed "compartment-preserving null" (it preserves endpoint neuropil membership, NOT spatial location). Claims surviving N3 are stated as "cannot be explained solely by endpoint compartment membership". N4 (cell-type-preserving) is DESIRED but blocked on cell-type annotations (Codex bulk token gap, documented in DATA_INVENTORY); if annotations land, N4 becomes Tier 2.
+- A15. STAGE C ADDITIONS: (a) causal motif-knockout ablation made explicit: remove motif-derived connections from FLY-M variants to test necessity, separately from the locked random-damage robustness arm; (b) tasks extended beyond MNIST/Fashion-MNIST with a CIFAR-10-subset arm; (c) shuffled-mapping controls for the motif->ANN mapping table (random equivalent mappings benchmark the subjective mapping choice).
+- A16. CHECKPOINT ARTIFACT: Stage A/B checkpoints now embed git commit hash, numpy/scipy versions, edges-parquet sha256, and the SeedSequence-derived seed list, making each checkpoint an immutable provenance artifact.

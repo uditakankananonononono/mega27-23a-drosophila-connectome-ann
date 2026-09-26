@@ -79,7 +79,7 @@ def dp_rewire_np(pre, post, n_nodes, n_swaps, seed, batch=400_000, rebuild_at=20
         post[idx_i], post[idx_j] = post[idx_j].copy(), post[idx_i].copy()
         accepted += take
         idle = 0 if take > 0 else idle + 1
-        if idle >= 200:
+        if idle >= 40:
             # group exhausted: no valid swaps remain; return partially rewired (logged by caller)
             break
         if len(removed) >= rebuild_at:

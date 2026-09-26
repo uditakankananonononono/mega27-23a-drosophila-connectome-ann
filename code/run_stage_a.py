@@ -52,10 +52,20 @@ def main():
     g.vs["root_id"] = nodes.tolist()
     print(f"graph: {n:,} nodes, {E:,} edges [{time.time()-t0:.0f}s]", flush=True)
 
+    prev = {}
+    if os.path.exists(CKPT):
+        try:
+            prev = json.load(open(CKPT))
+        except Exception:
+            prev = {}
+    resume_ok = prev.get("params", {}).get("runner") == "v4"
     res = dict(params=dict(threshold=5, n_null=N_NULL, master_seed=MASTER_SEED,
                            n_nodes=n, n_edges=E, runner="v4",
                            nulls_impl="code/nulls.py seeded numpy (AMENDMENT-3)",
                            census_impl="fast_census exact-rational (validated vs igraph: 166 synthetic cases; real-graph cross-check pending)"))
+    if resume_ok:
+        if prev.get("null_er"): res["null_er"] = prev["null_er"]
+        if prev.get("null_dp"): res["null_dp"] = prev["null_dp"]
     tc = time.time()
     res["observed"] = fast_census.census(A)
     res["params"]["census_seconds_observed"] = time.time() - tc
@@ -76,14 +86,8 @@ def main():
     ss = np.random.SeedSequence(MASTER_SEED)
     seeds = [int(s.generate_state(1)[0]) for s in ss.spawn(2 * N_NULL)]
 
-    prev = {}
-    if os.path.exists(CKPT):
-        try:
-            prev = json.load(open(CKPT))
-        except Exception:
-            prev = {}
     # resume: reuse only nulls from the same seeded runner version
-    null2 = list(prev.get("null_er", [])) if prev.get("params", {}).get("runner") == "v4" else []
+    null2 = list(prev.get("null_er", [])) if resume_ok else []
     if null2:
         print(f"resuming: {len(null2)} ER nulls from checkpoint", flush=True)
     for i in range(len(null2), N_NULL):
@@ -95,7 +99,7 @@ def main():
     res["null_er"] = null2; save(res)
     print(f"ER family done [{time.time()-t0:.0f}s]", flush=True)
 
-    null1 = list(prev.get("null_dp", [])) if prev.get("params", {}).get("runner") == "v4" else []
+    null1 = list(prev.get("null_dp", [])) if resume_ok else []
     if null1:
         print(f"resuming: {len(null1)} DP nulls from checkpoint", flush=True)
     for i in range(len(null1), N_NULL):

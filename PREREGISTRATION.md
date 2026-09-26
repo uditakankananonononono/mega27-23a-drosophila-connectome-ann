@@ -138,3 +138,18 @@ Stage A null families still computing; no z-scores/FDR read. Judge round 2 (JUDG
 - A14. LANGUAGE: N3 renamed "compartment-preserving null" (it preserves endpoint neuropil membership, NOT spatial location). Claims surviving N3 are stated as "cannot be explained solely by endpoint compartment membership". N4 (cell-type-preserving) is DESIRED but blocked on cell-type annotations (Codex bulk token gap, documented in DATA_INVENTORY); if annotations land, N4 becomes Tier 2.
 - A15. STAGE C ADDITIONS: (a) causal motif-knockout ablation made explicit: remove motif-derived connections from FLY-M variants to test necessity, separately from the locked random-damage robustness arm; (b) tasks extended beyond MNIST/Fashion-MNIST with a CIFAR-10-subset arm; (c) shuffled-mapping controls for the motif->ANN mapping table (random equivalent mappings benchmark the subjective mapping choice).
 - A16. CHECKPOINT ARTIFACT: Stage A/B checkpoints now embed git commit hash, numpy/scipy versions, edges-parquet sha256, and the SeedSequence-derived seed list, making each checkpoint an immutable provenance artifact.
+
+---
+
+## AMENDMENT-5 — 2026-09-26 — Judge round 3 (pre-results; Stage A still computing, no outcome data observed)
+
+A17. **Frozen mapping dictionary**: before any Stage C training, a pre-registered table maps each Tier-1 discovered structure to one computational hypothesis, one allowed implementation, and rejected alternatives with biological + computational rationale. No architecture may be chosen after seeing performance.
+A18. **Mandatory control ladder**: dense MLP (matched parameters/FLOPs/depth/epochs/optimizer/init count), random sparse graph (identical nodes/edges/degree distribution/path length), degree-preserving shuffled fly graph, ER sparse graph, small CNN.
+A19. **Causal triangle**: (A) fly-derived, (B) topology-preserved randomized, (C) B + inserted motifs only. Positive result requires A>B, motif-edge knockout damages A specifically more than random-equivalent removal, and C partially recovers. ≥20 training seeds per condition.
+A20. **Measured axes**: sample efficiency (1/5/10/100% data), damage resilience (5/10/20% edge removal), motif knockout, biological efficiency = accuracy ÷ trainable parameters, information-flow diagnostics (activation entropy, effective receptive field).
+A21. **Task-specific motif specialization** analysis across MNIST / Fashion-MNIST / CIFAR-10-subset.
+A22. **Neuropil-aware modular variant**: optic-lobe-inspired sparse encoder → central-complex-inspired routing → classifier, as an additional architecture arm.
+A23. **Stage B null-normalized enrichment only** (observed minus matched-null distribution), per-possible-triplet normalization, sensitivity analyses (strict/inclusive/uncertain-removed), covariate regression (degree, neuron count, edge density, neuropil identity).
+A24. **MNIST is sanity check only**; headline claims require low-data, corrupted-input, and edge-deletion robustness evidence.
+A25. **Thesis restated**: specific conserved connectome motifs impose computational inductive biases that improve efficiency or robustness under defined constraints.
+Deferred (logged, not core): predictive motif discovery via reverse search (compute-budget).

@@ -1426,3 +1426,674 @@ A stronger winning narrative would be:
 The missing ingredient is not more null models.
 
 It is a mechanistic bridge between biological structure and computational function.
+---
+
+## JUDGE ROUND 3 — 2026-09-26 ~9:15 PM IST — COUNTED
+
+**Conversation URL:** https://chatgpt.com/c/6ab7e84f-19a0-83ee-9d85-8d363a5aadd3
+**Method:** text paste (~4k chunks), Send-button click, prompt landing verified by text search, full response re-read before lease release (slot token-passed by main, released immediately).
+**Scope:** forward-design critique of Stage B/C (translation methodology, causality, novelty, Stage B confounds, top weaknesses). Stage A still computing; no outcomes read by judge.
+
+### Verbatim prompt
+
+```
+You are an expert ISEF judge and ANN architecture researcher. This is ROUND 3 of a design critique for a pre-registered Drosophila-connectome-to-ANN project. Rounds 1-2 (done) hardened the statistical design (3 seeded null families, FDR tiers, sampler convergence gate, compartment-preserving null). Stage A (whole-brain motif census + nulls) is RUNNING NOW; no results exist yet.
+
+This round attacks the FORWARD design: Stage B (per-neuropil stratified enrichment) and Stage C (translating discovered structures into ANN architectures). The current Stage C plan: candidate structures from Tier-1 surviving motifs get mapped to ANN components (e.g., feedforward loops -> skip/gating motifs, reciprocal pairs -> lateral connections, convergent hubs -> bottleneck attention), trained vs matched dense/sparse baselines on MNIST/Fashion-MNIST + a CIFAR-10-subset arm, with (a) random-damage robustness (ablation), (b) causal motif-knockout (remove motif-derived connections), (c) shuffled-mapping controls, (d) explicit per-motif computational hypotheses stated before training.
+
+Your job:
+1. Attack this translation methodology. Where does human bias still hide? What makes the comparison unfair in EITHER direction (stacked for or against the bio-inspired net)?
+2. Design the single most convincing experiment that would make a skeptical judge believe a fly-derived structure CAUSES a computational advantage. Give exact controls.
+3. NOVELTY: name concrete additions (angle, method, analysis, feature) that raise scientific novelty - specific, implementable in a small sandbox (2 CPU, 2GB RAM, small MLPs/CNNs only).
+4. Stage B: per-neuropil stratified motif enrichment - what confounds will a judge name, and what analysis would turn Stage B from a table into a finding?
+5. Top 5 weaknesses of the forward plan, ranked, each with a concrete fix.
+
+Be harsh and specific. Do not summarize back.
+
+===== CONTEXT: RELEVANT LOCKED DESIGN FACTS =====
+- Graph: FlyWire v783 proofread public release, 134,181 neurons / 2,700,513 directed edges at >=5 synapses (locked threshold; sweep {1,10,50} is Tier 2).
+- Stage A (running): 16-class directed triad census, 100 seeded ER + 100 seeded degree-preserving nulls, BH q=0.05 over 16 classes (Tier 1), z-scores two-sided normal approx.
+- N3 compartment-preserving null (per-endpoint primary neuropil grouped rewire) implemented, tested; whole-brain N3 arm queued.
+- Per-edge neurotransmitter predictions available (gaba/ach/glut/oct/ser/da averages) - Tier 3 exploratory only, language locked as "predicted-neurotransmitter-associated".
+- Rich-club, modularity (seeded Louvain, stability across 25 restarts owed), reciprocity computed; vs-null comparisons locked for rich-club.
+- Compute: 2 CPU / 2GB RAM sandbox; ANNs must be small (MLPs / small CNNs); training on MNIST-scale tasks.
+```
+
+### Verbatim response
+
+```
+; ANNs must be small (MLPs / small CNNs); training on MNIST-scale tasks.
+Show more
+1. Attack on the translation methodology: where bias still hides
+
+The statistical hardening in Stage A is strong, but Stage C is where the project becomes vulnerable again. The danger is not false motif discovery; it is human-designed biological storytelling after discovery.
+
+Failure mode 1 — “Motif-to-module” mapping is underdetermined
+
+A fly motif does not uniquely imply an ANN operation.
+
+Examples:
+
+Feedforward loop → skip connection/gating
+
+Why not normalization?
+
+Why not delayed recurrent integration?
+
+Why not regularization?
+
+Why not just increased depth?
+
+Reciprocal pair → lateral connection
+
+Why not inhibitory competition?
+
+Why not symmetric weight tying?
+
+Why not attention heads?
+
+Convergent hub → attention bottleneck
+
+Why not pooling?
+
+Why not sparse connectivity?
+
+Why not mixture-of-experts routing?
+
+The mapping is currently a researcher interpretation, not a discovered mechanism.
+
+Fix
+
+Before Stage C training, create a mapping dictionary frozen before seeing performance:
+
+Example:
+
+Biological structure	Computational hypothesis	Allowed implementation
+feedforward loop	conditional feature routing	multiplicative gate only
+reciprocal motif	bidirectional information exchange	symmetric recurrent edge
+convergent hub	selective aggregation	sparse learned pooling
+
+Then include:
+
+the chosen implementation
+
+rejected alternatives
+
+biological rationale
+
+computational rationale
+
+A skeptical judge should be able to say:
+
+"The authors did not pick the architecture after seeing that it worked."
+
+Biggest unfairness risks
+Bias against the bio-inspired model
+1. Parameter-count unfairness
+
+A fly-inspired sparse network may lose simply because:
+
+dense MLP has more trainable degrees of freedom
+
+CNN has architectural priors optimized for images
+
+Control:
+
+Match:
+
+parameters
+
+FLOPs
+
+depth
+
+training epochs
+
+optimizer
+
+initialization count
+
+Otherwise the result says:
+
+"Modern architectures outperform a constrained toy network."
+
+Not:
+
+"Fly motifs have no value."
+
+Bias favoring the bio-inspired model
+
+The opposite problem is equally serious.
+
+2. Giving the biological network a custom advantage
+
+Example:
+
+Dense baseline:
+
+784 → 128 → 64 → 10
+
+Fly network:
+
+784 → biologically inspired sparse graph → task head
+
+but the fly graph already contains:
+
+optimized sparsity
+
+bottlenecks
+
+skip paths
+
+implicit regularization
+
+The baseline may simply be badly chosen.
+
+Required baselines:
+
+Dense parameter-matched MLP
+
+Random sparse graph with identical:
+
+nodes
+
+edges
+
+degree distribution
+
+path length
+
+Degree-preserving shuffled fly graph
+
+Erdős–Rényi sparse graph
+
+Small CNN baseline
+
+The key question:
+
+Does biology beat topology alone?
+
+2. Single most convincing causal experiment
+
+Not MNIST accuracy.
+
+A skeptical judge will say:
+
+"Cool architecture. But did the fly motif cause anything?"
+
+The strongest experiment:
+
+Motif transplantation causal ablation experiment
+Design
+
+Create three networks:
+
+Network A — Fly-derived architecture
+
+Uses discovered Tier-1 motifs.
+
+Network B — Topology-preserved randomized control
+
+Same:
+
+neurons
+
+edges
+
+degree distribution
+
+sparsity
+
+parameter count
+
+but motif locations destroyed.
+
+Network C — Synthetic motif insertion
+
+Start with Network B.
+
+Insert only the discovered fly motif.
+
+Example:
+
+Add:
+
+50 feedforward loops
+
+same number of edges
+
+same parameter budget
+
+No other fly information.
+
+Train:
+
+Tasks:
+
+Primary:
+
+MNIST
+
+Secondary:
+
+Fashion-MNIST
+
+Optional:
+
+small CIFAR-10 subset
+
+Seeds:
+
+minimum 20 independent training seeds.
+
+Measurements
+
+Not only accuracy.
+
+Measure:
+
+1. Sample efficiency
+
+Train with:
+
+1%
+
+5%
+
+10%
+
+100%
+
+of training data.
+
+Biological networks should plausibly help under limited data.
+
+2. Damage resilience
+
+Randomly remove:
+
+5%
+
+10%
+
+20%
+
+edges.
+
+Compare degradation curves.
+
+3. Motif knockout
+
+Remove only motif-derived edges.
+
+Example:
+
+Fly network:
+
+baseline accuracy: 92%
+remove motif edges:
+87%
+
+Random equivalent removal:
+
+92%
+→91%
+
+This is much stronger.
+
+The convincing outcome
+
+The judge wants:
+
+Fly motif network > topology-matched random network
+
+AND
+
+Motif deletion specifically destroys performance
+
+AND
+
+Adding motifs to random networks partially restores performance
+
+That is the causal triangle.
+
+3. Concrete novelty additions (small sandbox feasible)
+
+Current idea:
+
+"Fly connectome motifs inspire ANN architecture"
+
+is interesting but vulnerable because many papers do bio-inspired sparse networks.
+
+You need a sharper contribution.
+
+Novelty upgrade 1: Evolutionary motif compression
+
+Question:
+
+Are fly motifs an efficient encoding strategy?
+
+Method:
+
+Train networks with identical parameter budgets:
+
+dense
+
+random sparse
+
+fly motif sparse
+
+Measure:
+
+accuracy / parameter.
+
+Metric:
+
+biological efficiency = accuracy ÷ trainable parameters
+
+Small compute.
+
+Possible claim:
+
+"Certain connectome motifs provide parameter-efficient computation."
+
+Novelty upgrade 2: Task-specific motif specialization
+
+Do not ask:
+
+"Are fly motifs useful?"
+
+Ask:
+
+"Which motifs help which computations?"
+
+Experiments:
+
+MNIST:
+
+feedforward motifs
+
+Fashion:
+
+reciprocal motifs
+
+CIFAR subset:
+
+hub motifs
+
+Then analyze:
+
+motif → computational property
+
+This is much more scientific.
+
+Novelty upgrade 3: Neuroanatomy-aware architecture
+
+Most bio-inspired ANN work ignores anatomy.
+
+Use:
+
+neuropil labels.
+
+Create:
+
+optic lobe module
+mushroom body module
+central complex module
+
+Architecture:
+
+visual input
+ ↓
+optic-inspired sparse encoder
+ ↓
+central-complex-inspired routing
+ ↓
+classifier
+
+Even with tiny networks this creates a stronger biological hypothesis.
+
+Novelty upgrade 4: Predictive motif discovery
+
+Currently:
+
+discover motifs → build ANN.
+
+Reverse it.
+
+Train a search algorithm:
+
+"Which motif improves robustness?"
+
+Then ask:
+
+Do discovered computational motifs occur in fly brain?
+
+That is much more novel.
+
+Novelty upgrade 5: Information-flow analysis
+
+Add:
+
+effective receptive field
+
+entropy of activations
+
+sparsity
+
+robustness
+
+Ask:
+
+"Does the fly architecture change information propagation?"
+
+Accuracy alone is weak.
+
+4. Stage B: per-neuropil stratified enrichment
+
+This is where judges will attack.
+
+Confound 1: neuropil size
+
+Large neuropils naturally contain more motifs.
+
+A mushroom body with thousands of neurons will dominate.
+
+Fix:
+
+Normalize by:
+
+motif count per possible triplet
+
+degree-preserving null within neuropil
+
+neuron count matched sampling
+
+Confound 2: degree structure
+
+Some regions naturally have:
+
+high fan-in
+
+high fan-out
+
+Motifs appear automatically.
+
+Fix:
+
+Your N3 null helps.
+
+But Stage B needs:
+
+Observed neuropil motif density
+-
+matched neuropil null distribution
+
+Not raw enrichment.
+
+Confound 3: annotation uncertainty
+
+Neuropil boundaries are biological labels, not ground truth.
+
+Fix:
+
+Sensitivity:
+
+Repeat with:
+
+strict neuropil assignment
+
+inclusive assignment
+
+uncertain neurons removed
+
+Confound 4: developmental/evolutionary constraints
+
+A motif enriched in a neuropil may reflect:
+
+wiring constraints
+
+neuron count
+
+sensory geometry
+
+not computation.
+
+Fix:
+
+Include covariates:
+
+Regression:
+
+motif enrichment ~
+degree +
+neurons +
+edge density +
+neuropil identity
+How Stage B becomes a finding
+
+A table:
+
+"Neuropil X has more feedforward loops"
+
+is weak.
+
+A finding:
+
+"Neuropil X shows motif enrichment beyond degree-preserving expectation, and the enriched motif predicts a computational property reproduced in ANN simulations."
+
+That connects:
+
+biology → mechanism → computation.
+
+5. Top 5 weaknesses ranked by impact
+#1 — Mapping motifs to ANN operations is subjective
+Impact:
+
+★★★★★
+
+The entire interpretation rests on this.
+
+Fix:
+
+Pre-register mapping rules + test alternative implementations.
+
+#2 — No proof motif advantage is causal
+Impact:
+
+★★★★★
+
+Accuracy improvement could come from:
+
+sparsity
+
+parameter count
+
+regularization
+
+Fix:
+
+Motif knockout + motif transplantation experiment.
+
+#3 — Baseline selection can make the result meaningless
+Impact:
+
+★★★★☆
+
+Bad baseline:
+
+"fly network beats dense MLP"
+
+means little.
+
+Fix:
+
+Require:
+
+parameter matched
+
+topology matched
+
+shuffled connectome
+
+controls.
+
+#4 — Stage B enrichment may rediscover anatomy, not computation
+Impact:
+
+★★★★☆
+
+Large structures naturally generate motifs.
+
+Fix:
+
+Null-normalized enrichment + regression controlling topology.
+
+#5 — MNIST is too easy
+Impact:
+
+★★★☆☆
+
+Almost any architecture works.
+
+Fix:
+
+Use MNIST only as sanity check.
+
+Add:
+
+low-data regime
+
+corrupted MNIST
+
+edge deletion robustness
+
+continual learning toy task
+
+The strongest version of this project is not:
+
+"Fly motifs improve accuracy."
+
+It is:
+
+"Specific conserved connectome motifs impose computational inductive biases that improve efficiency or robustness under defined constraints."
+
+That is a much harder claim, but also one that could survive an ISEF-level skeptical review.
+```
+
+### Critique → novelty-change mapping (builder decisions; pre-results, Stage A DP family still computing, no outcomes observed)
+
+| # | Judge critique | Adopted change |
+|---|---|---|
+| 1 | Motif→ANN mapping is underdetermined; researcher storytelling risk | **A17**: pre-registered mapping dictionary frozen before Stage C training (biological structure, computational hypothesis, single allowed implementation, rejected alternatives with rationale) |
+| 2 | Baseline selection can make results meaningless (both directions) | **A18**: mandatory control ladder — parameter/FLOP/depth/epoch/optimizer-matched dense MLP; random sparse graph (identical nodes/edges/degree dist/path length); degree-preserving shuffled fly graph; ER sparse graph; small CNN |
+| 3 | No proof motif advantage is causal | **A19**: motif transplantation causal triangle — A fly-derived vs B topology-preserved randomized vs C = B + inserted motifs only; success requires A>B AND motif-knockout-specific damage AND C partial restoration; ≥20 training seeds |
+| 4 | Accuracy alone is weak evidence | **A20**: measured axes — sample efficiency (1/5/10/100% data), damage resilience (5/10/20% edge removal curves), motif-edge knockout vs random-equivalent removal, biological efficiency metric (accuracy ÷ trainable params), information-flow diagnostics (activation entropy, effective receptive field) |
+| 5 | "Which motifs help which computations?" is more scientific | **A21**: task-specific motif specialization analysis (feedforward/reciprocal/hub vs MNIST/Fashion-MNIST/CIFAR-10-subset) |
+| 6 | Neuroanatomy is ignored by most bio-inspired ANN work | **A22**: neuropil-aware modular architecture variant (optic-lobe-inspired encoder → central-complex-inspired routing → classifier head) as an additional architecture arm |
+| 7 | Stage B enrichment may rediscover anatomy, not computation | **A23**: per-neuropil null-normalized enrichment (observed − matched-null distribution, never raw counts); normalization per possible triplet; sensitivity analyses (strict/inclusive/uncertain-removed neuropil assignment); covariate regression (degree, neuron count, edge density, neuropil identity) |
+| 8 | MNIST too easy alone | **A24**: MNIST = sanity check only; headline results require low-data regime, corrupted MNIST, and edge-deletion robustness |
+| 9 | Central claim reframing | **A25**: thesis restated as "specific conserved connectome motifs impose computational inductive biases that improve efficiency or robustness under defined constraints" — not "fly motifs improve accuracy" |
+| — | Predictive motif discovery (reverse search) | **Deferred** as future-work extension (exceeds 2 CPU/2GB budget); logged, not adopted into core |
+
+**Round counts toward 10-round minimum: YES** — concrete novelty improvements folded back (A17–A25 adopted pre-results; see PREREGISTRATION.md AMENDMENT-5).

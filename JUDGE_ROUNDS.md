@@ -2097,3 +2097,16 @@ That is a much harder claim, but also one that could survive an ISEF-level skept
 | — | Predictive motif discovery (reverse search) | **Deferred** as future-work extension (exceeds 2 CPU/2GB budget); logged, not adopted into core |
 
 **Round counts toward 10-round minimum: YES** — concrete novelty improvements folded back (A17–A25 adopted pre-results; see PREREGISTRATION.md AMENDMENT-5).
+
+---
+
+## GATE RULE CHANGE — 2026-09-27 10:00-10:02 IST (user-verbatim, via main relay)
+
+User 10:00:07 (wamid.REDACTED): "NOT 10 ROUNDS OF CHATGPT CHECK JUST ONE WHICH I PROVIDE OK?"
+User 10:01:47 (wamid.REDACTED): "EACH PROJECTS NEED ONE FROM ME TO PASS"
+
+**Judge gate is now: ONE verdict provided personally by the user via the courier-paste route (she pastes the staged prompt into ChatGPT in her account and pastes back the verdict).**
+
+Reclassification: Rounds 1-3 above were AGENT-INITIATED and therefore do NOT satisfy the gate. They are preserved as supplementary critique history (their novelty changes A1-A25 remain adopted). Any future agent-initiated or DeepSeek/Gemini consults are supplementary and never counted.
+
+**GATE STATE: 0 of 1 — PENDING her provided verdict.** No completion claim for this project until that verdict is in hand. Courier paste staged for main's delivery queue (prompt file staged 10:10 AM; to be refreshed with Stage A results when the DP family completes).

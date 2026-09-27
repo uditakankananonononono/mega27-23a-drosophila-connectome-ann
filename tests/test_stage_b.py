@@ -50,3 +50,25 @@ def test_permutation_test_detects_structure():
     labels2 = {f"np{k}": ("X" if k < 6 else "Y") for k in range(12)}
     obs2, p2 = stage_b.permutation_test_class_difference(gs2, labels2, n_perm=500, seed=3)
     assert p2 > 0.05
+
+def test_stage_b_null_path_seeded_and_valid():
+    """Stage B runner must use seeded numpy nulls (AMENDMENT-3): same seed -> identical
+    rewired graph; degree sequence and edge count preserved; no self-loops/multi-edges."""
+    import nulls, scipy.sparse as sp
+    rng = np.random.default_rng(7)
+    n, m = 300, 2000
+    pre = rng.integers(0, n, m); post = rng.integers(0, n, m)
+    A = sp.csr_matrix((np.ones(m), (pre, post)), shape=(n, n))
+    A.sum_duplicates(); A.data[:] = 1; A.setdiag(0); A.eliminate_zeros()
+    s, d = A.nonzero()
+    p1, q1 = nulls.dp_rewire_np(s, d, n, 10 * A.nnz, seed=42)
+    p2, q2 = nulls.dp_rewire_np(s, d, n, 10 * A.nnz, seed=42)
+    assert np.array_equal(p1, p2) and np.array_equal(q1, q2)  # deterministic
+    B = sp.csr_matrix((np.ones(len(p1)), (p1, q1)), shape=(n, n))
+    assert B.nnz == A.nnz                                     # edge count preserved
+    assert np.array_equal(np.diff(B.indptr), np.diff(A.indptr)) or \
+           np.array_equal(np.sort(np.diff(B.indptr)), np.sort(np.diff(A.indptr)))  # out-deg seq
+    in_a = np.bincount(d, minlength=n); in_b = np.bincount(q1, minlength=n)
+    assert np.array_equal(in_a, in_b)                         # in-degree preserved exactly
+    p3, q3 = nulls.dp_rewire_np(s, d, n, 10 * A.nnz, seed=43)
+    assert not (np.array_equal(p1, p3) and np.array_equal(q1, q3))  # different seed differs

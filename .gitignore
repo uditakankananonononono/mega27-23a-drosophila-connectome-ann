@@ -1,4 +1,9 @@
 data/raw/
 __pycache__/
 *.pyc
-results/
+results/*
+!results/*/
+results/**/*.parquet
+results/**/*.feather
+results/**/*.npy
+!results/**/*.json

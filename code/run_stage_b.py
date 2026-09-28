@@ -37,17 +37,58 @@ def build_subgraph(src, dst, mask):
     s2, d2 = idx[src[keep]].copy(), idx[dst[keep]].copy()
     return csr_from_arrays(s2, d2, int(mask.sum())), s2, d2
 
+def assignment_polars(pre_path, post_path, keep_roots=None):
+    """keep_roots: optional iterable of graph node root_ids. The neuropil tables
+    carry millions of non-proofread segment IDs; filtering to graph nodes first is
+    per-root independent, so the assignment for graph neurons is IDENTICAL, and it
+    bounds memory."""
+    """Locked rule B1, identical semantics to stage_b.assign_primary_neuropil but
+    polars-based: the pandas path peaks ~1.5GB on the post feather and OOMs this box.
+    Tie order: total desc, count_pre desc, neuropil name asc (deterministic; the
+    pandas quicksort path was unstable on full ties). The monolithic pandas
+    implementation cannot run on this box (OOMs at ~1.6GB on the post feather);
+    this polars path was verified row-equal on the FULL tables against an
+    independent chunked streaming-pandas running-argmax implementation
+    (code/audit_assignment.py, result in results/stage_b/assignment_audit.json)."""
+    from pyarrow import ipc as _ipc
+    # stream batches and filter BEFORE accumulating: eager pl.read_ipc on the 234MB
+    # post feather peaks >1.6GB and OOMs this box; filtering commutes with the rule.
+    def _load(path, idcol, newname):
+        r = _ipc.open_file(path)
+        frames = []
+        for bi in range(r.num_record_batches):
+            f = pl.from_arrow(r.get_batch(bi)).rename({idcol: "root_id", "count": newname})
+            if keep_roots is not None:
+                f = f.filter(pl.col("root_id").is_in(keep_roots))
+            frames.append(f)
+        return pl.concat(frames)
+    pre = _load(pre_path, "pre_pt_root_id", "count_pre")
+    post = _load(post_path, "post_pt_root_id", "count_post")
+    m = pre.join(post, on=["root_id", "neuropil"], how="outer_coalesce").fill_null(0)
+    m = m.with_columns((pl.col("count_pre") + pl.col("count_post")).alias("total"))
+    m = m.sort(["root_id", "total", "count_pre", "neuropil"],
+               descending=[False, True, True, False])
+    top = m.group_by("root_id", maintain_order=True).first().select(
+        ["root_id", "neuropil", "total"])
+    return top.rename({"neuropil": "primary_neuropil", "total": "primary_count"}).to_pandas()
+
+
 def main():
     t0 = time.time()
+    import gc
+    # assignment FIRST (feather peak), freed before edges load: stacking both OOMs 2GB box
     edges = pl.read_parquet(os.path.join(OUTA, "edges_ge5.parquet"))
     nodes = pl.concat([edges["pre_pt_root_id"], edges["post_pt_root_id"]]).unique().to_numpy()
+    assign = assignment_polars(
+        os.path.join(RAW, "per_neuron_neuropil_count_pre_783.feather"),
+        os.path.join(RAW, "per_neuron_neuropil_count_post_783.feather"),
+        keep_roots=nodes)
+    os.makedirs(OUT, exist_ok=True)
+    assign.to_csv(os.path.join(OUT, "neuropil_assignment.csv"), index=False)
+    gc.collect()
     index = {r: i for i, r in enumerate(nodes)}
     src = np.fromiter((index[r] for r in edges["pre_pt_root_id"].to_numpy()), dtype=np.int64, count=edges.height)
     dst = np.fromiter((index[r] for r in edges["post_pt_root_id"].to_numpy()), dtype=np.int64, count=edges.height)
-    assign = stage_b.assign_primary_neuropil(
-        os.path.join(RAW, "per_neuron_neuropil_count_pre_783.feather"),
-        os.path.join(RAW, "per_neuron_neuropil_count_post_783.feather"))
-    assign.to_csv(os.path.join(OUT if os.path.exists(OUT) else ".", "neuropil_assignment.csv"), index=False)
     masks = stage_b.neuropil_subgraph_mask(nodes, assign)
     print(f"assigned {len(assign):,} neurons; {len(masks)} testable neuropils [{time.time()-t0:.0f}s]", flush=True)
 

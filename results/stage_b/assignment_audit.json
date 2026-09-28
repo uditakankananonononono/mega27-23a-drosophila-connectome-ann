@@ -1,0 +1,9 @@
+{
+ "check": "assignment_polars vs independent numpy streaming running-argmax, full tables, graph-node filtered",
+ "roots_compared": 134181,
+ "roots_streaming": 134181,
+ "neuropil_mismatches": 0,
+ "count_mismatches": 0,
+ "verdict": "PASS",
+ "date": "2026-09-29"
+}

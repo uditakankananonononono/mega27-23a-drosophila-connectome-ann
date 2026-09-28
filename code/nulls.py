@@ -87,3 +87,41 @@ def dp_rewire_np(pre, post, n_nodes, n_swaps, seed, batch=400_000, rebuild_at=20
             base = np.sort(np.concatenate([base[keep], added]))
             removed = np.empty(0, dtype=np.int64); added = np.empty(0, dtype=np.int64)
     return pre, post
+
+
+def dp_rewire_fast(pre, post, n_nodes, n_swaps, seed, chunk=200_000):
+    """Same N1 null definition as dp_rewire_np (10 successful endpoint swaps per
+    edge, result simple and loopless, seeded/deterministic), different engine:
+    live hash-set membership instead of batched sorted-delta checks. The batched
+    path wastes ~60% of draws on small graphs (unique-edge-per-batch filter) and
+    was measured at 48s for ONE 10x rewire of AL_L (14,725 edges); this path is
+    ~0.5s for the same job. dp_rewire_np is retained unchanged - Stage A results
+    were produced with it and remain exactly reproducible. Stage B uses this.
+    Acceptance semantics: checks the LIVE edge set (standard), vs the batched
+    path's conservative pre-batch set; both sample the same rewire process."""
+    rng = np.random.default_rng(seed)
+    pre = pre.astype(np.int64).copy(); post = post.astype(np.int64).copy()
+    E = len(pre)
+    edges = set((pre * n_nodes + post).tolist())
+    accepted = 0
+    while accepted < n_swaps:
+        want = n_swaps - accepted
+        b = max(2 * want, 4096)
+        b = min(b, chunk)
+        ii = rng.integers(0, E, b); jj = rng.integers(0, E, b)
+        for i, j in zip(ii.tolist(), jj.tolist()):
+            if i == j:
+                continue
+            a = pre[i]; bb = post[i]; c = pre[j]; d = post[j]
+            n1 = a * n_nodes + d; n2 = c * n_nodes + bb
+            if a == d or c == bb or n1 == n2:
+                continue
+            if n1 in edges or n2 in edges:
+                continue
+            edges.discard(a * n_nodes + bb); edges.discard(c * n_nodes + d)
+            edges.add(n1); edges.add(n2)
+            post[i] = d; post[j] = bb
+            accepted += 1
+            if accepted >= n_swaps:
+                break
+    return pre, post

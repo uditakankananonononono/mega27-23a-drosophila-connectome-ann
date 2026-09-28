@@ -55,3 +55,18 @@ def test_total_matches_binomial():
     edges = [(i, j) for i in range(n) for j in range(n) if i != j and rng.random() < 0.3]
     got = census_igraph(ig.Graph(n=n, edges=edges, directed=True))
     assert sum(got.values()) == n * (n - 1) * (n - 2) // 6
+
+
+def test_dp_rewire_fast_invariants_and_determinism():
+    import numpy as np
+    import nulls
+    n, m = 300, 1200
+    pre, post = nulls.er_null_np(n, m, seed=42)
+    p, q = nulls.dp_rewire_fast(pre, post, n, 10 * m, seed=7)
+    assert (np.bincount(pre, minlength=n) == np.bincount(p, minlength=n)).all()
+    assert (np.bincount(post, minlength=n) == np.bincount(q, minlength=n)).all()
+    keys = p * n + q
+    assert len(set(keys.tolist())) == m
+    assert (p != q).all()
+    p2, q2 = nulls.dp_rewire_fast(pre, post, n, 10 * m, seed=7)
+    assert (p == p2).all() and (q == q2).all()

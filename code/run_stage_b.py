@@ -106,10 +106,11 @@ def main():
         obs = fast_census.census(A)
         null_dp, null_er = [], []
         for i in range(N_NULL_B):
-            p1, q1 = nulls.dp_rewire_np(s2, d2, n_sub, 10 * m_sub, seed=next(seeds))
+            p1, q1 = nulls.dp_rewire_fast(s2, d2, n_sub, 10 * m_sub, seed=next(seeds))
             null_dp.append(fast_census.census(csr_from_arrays(p1, q1, n_sub))); del p1, q1
             p2, q2 = nulls.er_null_np(n_sub, m_sub, seed=next(seeds))
             null_er.append(fast_census.census(csr_from_arrays(p2, q2, n_sub))); del p2, q2
+            print(f"  {name} null {i+1}/{N_NULL_B} [{time.time()-ts:.0f}s]", flush=True)
         zdp, _, _ = stage_a.motif_zscores(obs, null_dp)
         zer, _, _ = stage_a.motif_zscores(obs, null_er)
         res["neuropils"][name] = dict(n=n_sub, m=m_sub, observed=obs,

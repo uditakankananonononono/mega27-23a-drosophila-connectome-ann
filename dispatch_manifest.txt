@@ -1,1 +1,1 @@
-results/stage_c/grid_manifest_a27.json
+results/stage_c/grid_manifest_a27_t3patch.json

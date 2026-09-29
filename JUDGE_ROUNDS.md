@@ -2110,3 +2110,11 @@ User 10:01:47 (wamid.HBgMOTE4MTM0MDk4NTcxFQIAEhgWM0VCMDMwREI5RDQ0QUNCRDc2MTNDMwA
 Reclassification: Rounds 1-3 above were AGENT-INITIATED and therefore do NOT satisfy the gate. They are preserved as supplementary critique history (their novelty changes A1-A25 remain adopted). Any future agent-initiated or DeepSeek/Gemini consults are supplementary and never counted.
 
 **GATE STATE: 0 of 1 — PENDING her provided verdict.** No completion claim for this project until that verdict is in hand. Courier paste staged for main's delivery queue (prompt file staged 10:10 AM; to be refreshed with Stage A results when the DP family completes).
+
+## 2026-09-29 1:49:44 PM IST - JUDGE GATE LIFTED (user verbatim, relayed by main):
+"They are lifted now only one round per project required."
+Program-wide change: exactly ONE ChatGPT judge round per project (novelty improvement,
+no pass/fail gating); courier-paste queue dropped - no project waits on a user-provided
+verdict. Ledger for 23a: 0 rounds so far. PLAN: one agent-initiated ChatGPT judge round
+after Stage C grid + Stage D analysis land (so the round judges real results), logged
+here, output applied as novelty improvement before paper finalization.

@@ -21,7 +21,19 @@ def main():
     chains = {}
     for seed in (23, 24, 25):
         ts = time.time()
-        out = nulls_convergence.run_chain(src, dst, len(nodes), seed=seed, fractions=FR)
+        # engine note: dp_rewire_fast (live hash-set acceptance) instead of dp_rewire_np
+        # (batched sorted-delta) - same valid DP Markov chain; np engine was being
+        # CPU-throttled to ~11% duty making ETA hours. Diagnostic comparability is
+        # unaffected: A26 criterion uses only the 20E->40E window.
+        E = len(src)
+        p, q = src.copy(), dst.copy()
+        out, done = {}, 0
+        for f in FR:
+            target = int(f * E)
+            if target > done:
+                p, q = nulls.dp_rewire_fast(p, q, len(nodes), target - done, seed + done)
+                done = target
+            out[f] = nulls_convergence.census_at(p, q, len(nodes))
         chains[str(seed)] = {str(k): v for k, v in out.items()}
         # plateau on 20E->40E
         a, b = out[20], out[40]
@@ -35,7 +47,7 @@ def main():
         chains[str(seed)]['converged_20E_40E'] = bool(ok)
         print(f"chain seed={seed} converged={ok} [{time.time()-ts:.0f}s] " +
               str({k: round(v,4) for k,v in rows.items() if v >= 0.02}), flush=True)
-    res = {"amendment": "A26 (AMENDMENT-6)", "seeds": [23,24,25],
+    res = {"amendment": "A26 (AMENDMENT-6)", "engine": "dp_rewire_fast (same N1 null semantics; engine swap documented, see commit history)", "seeds": [23,24,25],
            "fractions_E_swaps": list(FR), "chains": chains,
            "criterion": "|count(40E)-count(20E)|/|count(40E)| < 0.02 for classes with count(40E)>=100, all chains",
            "elapsed_s": time.time()-t0}

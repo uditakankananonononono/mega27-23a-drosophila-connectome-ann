@@ -13,3 +13,6 @@
 
 ## Planned (locked in PREREGISTRATION.md; added here only after actual execution)
 scipy stats (Wilcoxon), scikit-learn, torch (Stage D ANN training), matplotlib (figures), ...
+
+| 2026-09-29 | pyarrow/polars Tier-3 NT structure scan (proofread_connections_783.feather, 3.87M graph edges) | results/stage_b/nt_structure.json |
+| 2026-09-29 | dp_rewire_c N3 within-neuropil null engine, Stage B Tier-2 (25 nulls x 51 neuropils) | results/stage_b/stage_b_n3.json |

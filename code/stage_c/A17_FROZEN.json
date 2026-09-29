@@ -59,8 +59,8 @@
    "signs": null
   }
  },
- "fly_ms_enabled": false,
- "fly_ms_gate": "RESOLVED 2026-09-29 pre-training (C2): Tier-3 analysis (results/stage_b/nt_structure.json) shows clear predicted-NT sign structure: GABA-dominant edge fraction 22.4% overall; per-neuropil range 4.9% (PB) to 74.9% (EB), sd 0.089 across 76 neuropils >1000 edges. fly_ms_conditional arm ADMITTED as exploratory (not headline); base arms keep fly_ms_enabled=false.",
+ "fly_ms_enabled": true,
+ "fly_ms_gate": "RESOLVED 2026-09-29 pre-training (C2): Tier-3 analysis (results/stage_b/nt_structure.json) shows clear predicted-NT sign structure: GABA-dominant edge fraction 22.4% overall; per-neuropil range 4.9% (PB) to 74.9% (EB), sd 0.089 across 76 neuropils >1000 edges. fly_ms_conditional arm ADMITTED as exploratory (not headline); base arms keep fly_ms_enabled=false. FLAG SYNC 2026-09-29: fly_ms_enabled=true; the flag gates ONLY the fly_ms_conditional arm (trainer skip check; models.py keys on arm name), so true == conditional arm admitted, base arms unaffected.",
  "arms_active": [
   "base_dense",
   "base_sparse",

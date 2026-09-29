@@ -18,7 +18,13 @@ OUTA = os.path.join(os.path.dirname(__file__), "..", "results", "stage_a")
 RAW = os.path.join(os.path.dirname(__file__), "..", "data", "raw")
 MASTER_SEED = 25  # N3 family seed (23=Stage A, 24=Stage B)
 N_NULL, SWAPS = 100, 10
-CKPT = os.path.join(OUTA, "n3_checkpoint.json")
+# two-worker split (2 CPU box, checkpoint-resume safe): worker w covers [w*50,(w+1)*50)
+import sys as _s
+W = int(_s.argv[1]) if len(_s.argv) > 1 else 0
+NW = int(_s.argv[2]) if len(_s.argv) > 2 else 1
+SPAN = N_NULL // NW
+LO, HI = W * SPAN, (W + 1) * SPAN
+CKPT = os.path.join(OUTA, f"n3_checkpoint_w{W}.json")
 
 def side_primary(path, idcol, keep):
     keep = set(int(r) for r in keep)
@@ -60,15 +66,15 @@ def main():
     n_nodes = len(nodes)
     CL = ['003','012','102','021D','021U','021C','111D','111U','030T','030C','201','120D','120U','120C','210','300']
     done_counts = []
-    start_i = 0
+    start_i = LO
     if os.path.exists(CKPT):
         ck = json.load(open(CKPT))
-        if ck.get("params") == [N_NULL, SWAPS, MASTER_SEED]:
+        if ck.get("params") == [N_NULL, SWAPS, MASTER_SEED, W]:
             done_counts, start_i = ck["counts"], ck["n_done"]
-            print(f"resuming at null {start_i} [{time.time()-t0:.0f}s]", flush=True)
+            print(f"worker {W} resuming at null {start_i} [{time.time()-t0:.0f}s]", flush=True)
     ss = np.random.SeedSequence(MASTER_SEED)
     seeds = [int(s.generate_state(1)[0]) for s in ss.spawn(N_NULL)]
-    for i in range(start_i, N_NULL):
+    for i in range(start_i, HI):
         ti = time.time()
         p, q = src_all.copy(), dst_all.copy()
         gs = np.random.SeedSequence(seeds[i]).spawn(len(groups))
@@ -82,9 +88,13 @@ def main():
         done_counts.append([c[k] for k in CL])
         del A, p, q; gc.collect()
         if (i + 1) % 10 == 0 or i == N_NULL - 1:
-            json.dump({"params": [N_NULL, SWAPS, MASTER_SEED], "n_done": i + 1, "counts": done_counts},
+            json.dump({"params": [N_NULL, SWAPS, MASTER_SEED, W], "n_done": i + 1, "counts": done_counts},
                       open(CKPT, "w"))
-        print(f"null {i+1}/{N_NULL} [{time.time()-ti:.0f}s cum {time.time()-t0:.0f}s]", flush=True)
+        print(f"w{W} null {i+1}/{HI} [{time.time()-ti:.0f}s cum {time.time()-t0:.0f}s]", flush=True)
+    json.dump({"worker": W, "lo": LO, "hi": HI, "counts": done_counts, "elapsed_s": time.time() - t0},
+              open(os.path.join(OUTA, f"n3_part_w{W}.json"), "w"))
+    print(f"WORKER {W} DONE [{time.time()-t0:.0f}s]", flush=True)
+    return
     counts = np.array(done_counts, dtype=np.float64)
     obs = json.load(open(os.path.join(OUTA, "stage_a_analysis.json")))["observed"]
     mean, sd = counts.mean(0), counts.std(0, ddof=1)

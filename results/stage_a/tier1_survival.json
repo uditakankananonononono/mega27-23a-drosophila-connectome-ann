@@ -1,0 +1,95 @@
+{
+ "language_note": "A14: survival = \"cannot be explained solely by endpoint compartment membership\"",
+ "mixing_unresolved": [
+  "111D",
+  "111U",
+  "120C",
+  "120D",
+  "120U",
+  "201",
+  "210",
+  "300"
+ ],
+ "rows": {
+  "003": {
+   "z_dp": 2843.3425949728967,
+   "z_n3": 1353.8785309914751,
+   "tier": "TIER-1 CONFIRMATORY (survives N1+N2+N3)"
+  },
+  "012": {
+   "z_dp": -2877.2444919308955,
+   "z_n3": -1354.9181836208902,
+   "tier": "TIER-1 CONFIRMATORY (survives N1+N2+N3)"
+  },
+  "102": {
+   "z_dp": 2844.558801573447,
+   "z_n3": 1355.0878843209748,
+   "tier": "TIER-1 CONFIRMATORY (survives N1+N2+N3)"
+  },
+  "021D": {
+   "z_dp": -390.5236625147195,
+   "z_n3": -279.73647059149533,
+   "tier": "TIER-1 CONFIRMATORY (survives N1+N2+N3)"
+  },
+  "021U": {
+   "z_dp": -407.4520809059753,
+   "z_n3": -287.9848395738271,
+   "tier": "TIER-1 CONFIRMATORY (survives N1+N2+N3)"
+  },
+  "021C": {
+   "z_dp": -389.3702214279128,
+   "z_n3": -281.8862607032375,
+   "tier": "TIER-1 CONFIRMATORY (survives N1+N2+N3)"
+  },
+  "111D": {
+   "z_dp": 211.79162923379874,
+   "z_n3": 150.71038866930348,
+   "tier": "mixing-unresolved (A26)"
+  },
+  "111U": {
+   "z_dp": 221.15373135165655,
+   "z_n3": 172.18146491226207,
+   "tier": "mixing-unresolved (A26)"
+  },
+  "030T": {
+   "z_dp": 637.6224991853693,
+   "z_n3": 132.20086545027732,
+   "tier": "TIER-1 CONFIRMATORY (survives N1+N2+N3)"
+  },
+  "030C": {
+   "z_dp": 123.69058656672486,
+   "z_n3": -64.95665635853659,
+   "tier": "organization-dependent (N1+N2 only; fails/reverses under N3)"
+  },
+  "201": {
+   "z_dp": 1786.8128265523933,
+   "z_n3": 516.0332138529034,
+   "tier": "mixing-unresolved (A26)"
+  },
+  "120D": {
+   "z_dp": 769.1806712352121,
+   "z_n3": 202.7912808679587,
+   "tier": "mixing-unresolved (A26)"
+  },
+  "120U": {
+   "z_dp": 774.2961634287617,
+   "z_n3": 229.43205748505835,
+   "tier": "mixing-unresolved (A26)"
+  },
+  "120C": {
+   "z_dp": 428.3789629062984,
+   "z_n3": 157.351857605338,
+   "tier": "mixing-unresolved (A26)"
+  },
+  "210": {
+   "z_dp": 1344.9316905935916,
+   "z_n3": 243.84782526408156,
+   "tier": "mixing-unresolved (A26)"
+  },
+  "300": {
+   "z_dp": 4647.4221720520745,
+   "z_n3": 313.40180362700414,
+   "tier": "mixing-unresolved (A26)"
+  }
+ }
+}

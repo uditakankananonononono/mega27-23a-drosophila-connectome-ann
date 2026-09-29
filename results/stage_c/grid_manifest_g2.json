@@ -1,0 +1,728 @@
+{
+ "master_seed": 27000027,
+ "amendment": "A27/G2",
+ "n_runs": 80,
+ "note": "G2 ablation wave (prereg G2): ablation eval appended post-training, fractions 0-0.5. Seeds reused from A27.",
+ "runs": [
+  {
+   "run_id": "fly_m_c|T1_mnist_noise|s0.0|k00",
+   "arm": "fly_m_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 0,
+   "seed": 2605371304,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T1_mnist_noise|s0.0|k01",
+   "arm": "fly_m_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 1,
+   "seed": 2034848755,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T1_mnist_noise|s0.0|k02",
+   "arm": "fly_m_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 2,
+   "seed": 4152357984,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T1_mnist_noise|s0.0|k03",
+   "arm": "fly_m_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 3,
+   "seed": 385854188,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T1_mnist_noise|s0.0|k04",
+   "arm": "fly_m_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 4,
+   "seed": 2760180924,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T1_mnist_noise|s0.0|k05",
+   "arm": "fly_m_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 5,
+   "seed": 3951804943,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T1_mnist_noise|s0.0|k06",
+   "arm": "fly_m_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 6,
+   "seed": 3479802560,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T1_mnist_noise|s0.0|k07",
+   "arm": "fly_m_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 7,
+   "seed": 835341511,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T1_mnist_noise|s0.0|k08",
+   "arm": "fly_m_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 8,
+   "seed": 899966197,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T1_mnist_noise|s0.0|k09",
+   "arm": "fly_m_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 9,
+   "seed": 843486755,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T1_mnist_noise|s0.0|k10",
+   "arm": "fly_m_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 10,
+   "seed": 392820805,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T1_mnist_noise|s0.0|k11",
+   "arm": "fly_m_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 11,
+   "seed": 2363340507,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T1_mnist_noise|s0.0|k12",
+   "arm": "fly_m_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 12,
+   "seed": 1005509948,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T1_mnist_noise|s0.0|k13",
+   "arm": "fly_m_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 13,
+   "seed": 2829008867,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T1_mnist_noise|s0.0|k14",
+   "arm": "fly_m_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 14,
+   "seed": 3663525488,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T1_mnist_noise|s0.0|k15",
+   "arm": "fly_m_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 15,
+   "seed": 3438988559,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T1_mnist_noise|s0.0|k16",
+   "arm": "fly_m_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 16,
+   "seed": 745879691,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T1_mnist_noise|s0.0|k17",
+   "arm": "fly_m_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 17,
+   "seed": 991887294,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T1_mnist_noise|s0.0|k18",
+   "arm": "fly_m_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 18,
+   "seed": 2431767244,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T1_mnist_noise|s0.0|k19",
+   "arm": "fly_m_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 19,
+   "seed": 2901865754,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T4_permuted_mnist|s0.0|k00",
+   "arm": "fly_m_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 0,
+   "seed": 2535892750,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T4_permuted_mnist|s0.0|k01",
+   "arm": "fly_m_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 1,
+   "seed": 184471826,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T4_permuted_mnist|s0.0|k02",
+   "arm": "fly_m_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 2,
+   "seed": 1360251629,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T4_permuted_mnist|s0.0|k03",
+   "arm": "fly_m_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 3,
+   "seed": 1834411674,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T4_permuted_mnist|s0.0|k04",
+   "arm": "fly_m_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 4,
+   "seed": 1140270701,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T4_permuted_mnist|s0.0|k05",
+   "arm": "fly_m_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 5,
+   "seed": 4287100628,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T4_permuted_mnist|s0.0|k06",
+   "arm": "fly_m_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 6,
+   "seed": 724763324,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T4_permuted_mnist|s0.0|k07",
+   "arm": "fly_m_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 7,
+   "seed": 1941609114,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T4_permuted_mnist|s0.0|k08",
+   "arm": "fly_m_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 8,
+   "seed": 1599111344,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T4_permuted_mnist|s0.0|k09",
+   "arm": "fly_m_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 9,
+   "seed": 2489312765,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T4_permuted_mnist|s0.0|k10",
+   "arm": "fly_m_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 10,
+   "seed": 413290290,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T4_permuted_mnist|s0.0|k11",
+   "arm": "fly_m_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 11,
+   "seed": 3780275061,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T4_permuted_mnist|s0.0|k12",
+   "arm": "fly_m_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 12,
+   "seed": 4087952221,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T4_permuted_mnist|s0.0|k13",
+   "arm": "fly_m_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 13,
+   "seed": 1850263261,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T4_permuted_mnist|s0.0|k14",
+   "arm": "fly_m_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 14,
+   "seed": 843259566,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T4_permuted_mnist|s0.0|k15",
+   "arm": "fly_m_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 15,
+   "seed": 4239841185,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T4_permuted_mnist|s0.0|k16",
+   "arm": "fly_m_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 16,
+   "seed": 2794033903,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T4_permuted_mnist|s0.0|k17",
+   "arm": "fly_m_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 17,
+   "seed": 3025194974,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T4_permuted_mnist|s0.0|k18",
+   "arm": "fly_m_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 18,
+   "seed": 2662133999,
+   "ablation": true
+  },
+  {
+   "run_id": "fly_m_c|T4_permuted_mnist|s0.0|k19",
+   "arm": "fly_m_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 19,
+   "seed": 121921756,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T1_mnist_noise|s0.0|k00",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 0,
+   "seed": 856564293,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T1_mnist_noise|s0.0|k01",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 1,
+   "seed": 2561586959,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T1_mnist_noise|s0.0|k02",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 2,
+   "seed": 2239192007,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T1_mnist_noise|s0.0|k03",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 3,
+   "seed": 259982553,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T1_mnist_noise|s0.0|k04",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 4,
+   "seed": 3515444812,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T1_mnist_noise|s0.0|k05",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 5,
+   "seed": 2109320384,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T1_mnist_noise|s0.0|k06",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 6,
+   "seed": 3644340917,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T1_mnist_noise|s0.0|k07",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 7,
+   "seed": 1433017418,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T1_mnist_noise|s0.0|k08",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 8,
+   "seed": 1545149273,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T1_mnist_noise|s0.0|k09",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 9,
+   "seed": 2821598422,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T1_mnist_noise|s0.0|k10",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 10,
+   "seed": 1895555187,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T1_mnist_noise|s0.0|k11",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 11,
+   "seed": 2732482218,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T1_mnist_noise|s0.0|k12",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 12,
+   "seed": 3956190759,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T1_mnist_noise|s0.0|k13",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 13,
+   "seed": 708492749,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T1_mnist_noise|s0.0|k14",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 14,
+   "seed": 1433316954,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T1_mnist_noise|s0.0|k15",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 15,
+   "seed": 2513709515,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T1_mnist_noise|s0.0|k16",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 16,
+   "seed": 1932382389,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T1_mnist_noise|s0.0|k17",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 17,
+   "seed": 1075125284,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T1_mnist_noise|s0.0|k18",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 18,
+   "seed": 4063672675,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T1_mnist_noise|s0.0|k19",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 19,
+   "seed": 1583028237,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T4_permuted_mnist|s0.0|k00",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 0,
+   "seed": 16804721,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T4_permuted_mnist|s0.0|k01",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 1,
+   "seed": 2691138757,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T4_permuted_mnist|s0.0|k02",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 2,
+   "seed": 3217858502,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T4_permuted_mnist|s0.0|k03",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 3,
+   "seed": 3129617936,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T4_permuted_mnist|s0.0|k04",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 4,
+   "seed": 1697071081,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T4_permuted_mnist|s0.0|k05",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 5,
+   "seed": 3594251048,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T4_permuted_mnist|s0.0|k06",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 6,
+   "seed": 998842282,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T4_permuted_mnist|s0.0|k07",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 7,
+   "seed": 2710833974,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T4_permuted_mnist|s0.0|k08",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 8,
+   "seed": 4191591392,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T4_permuted_mnist|s0.0|k09",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 9,
+   "seed": 758286607,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T4_permuted_mnist|s0.0|k10",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 10,
+   "seed": 399454935,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T4_permuted_mnist|s0.0|k11",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 11,
+   "seed": 1045100675,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T4_permuted_mnist|s0.0|k12",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 12,
+   "seed": 968902838,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T4_permuted_mnist|s0.0|k13",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 13,
+   "seed": 3657154221,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T4_permuted_mnist|s0.0|k14",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 14,
+   "seed": 524685030,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T4_permuted_mnist|s0.0|k15",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 15,
+   "seed": 2720091118,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T4_permuted_mnist|s0.0|k16",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 16,
+   "seed": 3285486941,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T4_permuted_mnist|s0.0|k17",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 17,
+   "seed": 1064759579,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T4_permuted_mnist|s0.0|k18",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 18,
+   "seed": 3974300656,
+   "ablation": true
+  },
+  {
+   "run_id": "ctrl_rand_sparse_c|T4_permuted_mnist|s0.0|k19",
+   "arm": "ctrl_rand_sparse_c",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 19,
+   "seed": 4055702685,
+   "ablation": true
+  }
+ ]
+}

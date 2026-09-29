@@ -22,7 +22,7 @@ def main():
         val = min(prev, emp[j] * 16 / (16 - rank)); q[j] = val; prev = val
     res = {"family": "N3 compartment-preserving (endpoint primary neuropil, per-side)", "tier": 1,
            "n_null": 100, "swaps_per_edge": 10, "master_seed": 25,
-           "engine": "dp_rewire_fast per compartment group (same N1 semantics as dp_rewire_np)",
+           "engine": "dp_rewire_c (C engine, same acceptance semantics as dp_rewire_fast)",
            "workers": lo_hi,
            "classes": CL,
            "per_class": {CL[j]: {"observed": float(ob[j]), "null_mean": float(mean[j]), "null_sd": float(sd[j]),

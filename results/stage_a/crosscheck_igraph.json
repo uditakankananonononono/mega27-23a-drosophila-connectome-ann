@@ -1,7 +1,0 @@
-{
- "check": "igraph triad_census vs fast_census observed counts, real graph (edges_ge5.parquet, 134181 nodes, 2700513 edges)",
- "result": "ALL MATCH - exact integer agreement on all 16 classes",
- "igraph_census_seconds": 3385.2,
- "date": "2026-09-28",
- "script": "code/crosscheck_igraph.py"
-}

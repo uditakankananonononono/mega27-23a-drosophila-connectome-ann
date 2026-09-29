@@ -1,6 +1,7 @@
 # JUDGE ROUNDS — mega27-23a (From Connectome to Computation)
 
-Program rule: minimum 10 ChatGPT rounds per project on weaknesses + concrete improvements (user WhatsApp 4:11:18, verified). Mechanism: cloud browser on the user's ChatGPT account. Judges critique design/presentation/completeness/controls; they NEVER redefine locked gates after outcomes (AMENDMENT-1).
+Program rule (CURRENT, 2026-09-29 1:49 PM IST user steering, verified against WhatsApp originals): judge gates LIFTED program-wide - "No chatgpt judge rules tho" + "They are lifted now only one round per project required". Exactly ONE ChatGPT judge round per project, novelty improvement only, NO pass/fail gating, courier-paste queue dropped. REFINEMENT 1:50:34 PM (parent relay): "But keep the verdicts I already gave. Those are needed to implement." - prior user-given verdicts stay binding; 23a received NO user-provided verdicts (courier gate was 0-of-1 pending at lift), so nothing binding lands on 23a. 23a STATUS: requirement SATISFIED by ROUND 1 below (2026-09-26 design critique); an optional post-results novelty pass may follow Stage D if it adds value.
+SUPERSEDED (kept for history): minimum 10 ChatGPT rounds per project on weaknesses + concrete improvements (user WhatsApp 4:11:18 Sep 26, verified). Mechanism: cloud browser on the user's ChatGPT account. Judges critique design/presentation/completeness/controls; they NEVER redefine locked gates after outcomes (AMENDMENT-1).
 
 ---
 

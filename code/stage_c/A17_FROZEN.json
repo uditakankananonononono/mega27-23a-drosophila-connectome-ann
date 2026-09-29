@@ -69,7 +69,9 @@
   "ctrl_dp_shuffled",
   "ctrl_er_sparse",
   "small_cnn",
-  "fly_mod"
+  "fly_mod",
+  "fly_m_c",
+  "ctrl_rand_sparse_c"
  ],
  "applicability": {
   "T3_adding": [
@@ -82,5 +84,6 @@
    "fly_mod"
   ]
  },
- "fly_ms_conditional_admitted": true
+ "fly_ms_conditional_admitted": true,
+ "a27_note": "AMENDMENT-27 arms admitted pre-outcome (PREREG_A27.md); repair rule in models.py repair_masks/match_edge_count."
 }

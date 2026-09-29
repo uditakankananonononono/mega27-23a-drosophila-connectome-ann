@@ -153,3 +153,9 @@ A23. **Stage B null-normalized enrichment only** (observed minus matched-null di
 A24. **MNIST is sanity check only**; headline claims require low-data, corrupted-input, and edge-deletion robustness evidence.
 A25. **Thesis restated**: specific conserved connectome motifs impose computational inductive biases that improve efficiency or robustness under defined constraints.
 Deferred (logged, not core): predictive motif discovery via reverse search (compute-budget).
+
+---
+
+## AMENDMENT-6 — 2026-09-29 (pre-run; written before the 40E escalation run executes)
+
+A26. A13 ESCALATION, INVOKING A13's OWN PRE-AUTHORIZED CLAUSE ("If violated, N1 swaps/edge increases via new amendment"). The A13 diagnostic at 20 swaps/edge (results/stage_a/convergence.json) VIOLATED the locked plateau criterion: 4 classes with count(20E)>=100 exceeded 0.02 relative change 10E->20E (111D 0.030, 111U 0.029, 201 0.060, 210 0.038). Escalation: rerun the diagnostic to 40 swaps/edge on 3 seeded chains (seeds 23, 24, 25), censuses at 0/1/2/5/10/20/40 E. Plateau criterion unchanged in form, applied to the 20E->40E window per chain: converged iff relative change < 0.02 for every class with count(40E) >= 100, on all 3 chains. Reporting pre-specified: (a) if converged at 40E, Stage A/B (which used 10E nulls) carry a bounded-mixing caveat reporting per-class 10E->20E and 20E->40E drift; conclusions are re-affirmed only for classes whose |z| against 10E nulls exceed 100 (all four flagged classes: |z| in {212, 221, 1345, 1787}); (b) if NOT converged at 40E, the 4 affected classes are downgraded to "mixing-unresolved" and excluded from headline enrichment claims; unaffected classes stand. No other gates change.

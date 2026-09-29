@@ -27,8 +27,8 @@ long long dp_rewire_c(long long *pre, long long *post, long long E,
         tab[h] = key;
     }
     uint64_t st = seed ? seed : 0x123456789ULL;
-    long long accepted = 0, stall = 0;
-    while (accepted < n_swaps && stall < 50000000LL) {
+    long long accepted = 0, stall = 0; long long stall_max = 20 * n_swaps; if (stall_max < 100000) stall_max = 100000;
+    while (accepted < n_swaps && stall < stall_max) {
         long long i = (long long)(sm64(&st) % (uint64_t)E);
         long long j = (long long)(sm64(&st) % (uint64_t)E);
         if (i == j) { stall++; continue; }

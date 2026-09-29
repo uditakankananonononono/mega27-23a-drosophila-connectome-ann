@@ -9,6 +9,12 @@ on:
         description: "Comma-separated job indices 0-26, in priority order (e.g. 6,7,8,3,4,5)"
         required: true
         type: string
+  push:
+    branches:
+      - 'dispatch/*'
+
+permissions:
+  contents: write
 
 jobs:
   setup:
@@ -16,11 +22,13 @@ jobs:
     outputs:
       matrix: ${{ steps.m.outputs.matrix }}
     steps:
+      - uses: actions/checkout@v4
       - id: m
         run: |
           python3 - <<'PY'
           import json, os
-          jobs = [int(x) for x in "${{ github.event.inputs.jobs }}".split(",") if x.strip() != ""]
+          src = "${{ github.event.inputs.jobs }}" if "${{ github.event_name }}" == "workflow_dispatch" else open("dispatch_jobs.txt").read()
+          jobs = [int(x) for x in src.replace("\n", ",").split(",") if x.strip() != ""]
           assert all(0 <= j <= 26 for j in jobs), jobs
           mat = [{"job": j, "start": j*60, "end": j*60+60} for j in jobs]
           print("matrix=" + json.dumps({"include": mat}))

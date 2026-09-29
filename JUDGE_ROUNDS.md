@@ -2118,3 +2118,5 @@ no pass/fail gating); courier-paste queue dropped - no project waits on a user-p
 verdict. Ledger for 23a: 0 rounds so far. PLAN: one agent-initiated ChatGPT judge round
 after Stage C grid + Stage D analysis land (so the round judges real results), logged
 here, output applied as novelty improvement before paper finalization.
+Verified against WhatsApp originals (observations): user 1:49:29 PM "No chatgpt judge rules tho";
+user 1:49:44 PM "They are lifted now only one round per project required". Ledger entry stands.

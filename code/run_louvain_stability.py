@@ -17,8 +17,9 @@ def main():
     idx = {r: i for i, r in enumerate(nodes)}
     src = [idx[r] for r in edges["pre_pt_root_id"].to_numpy()]
     dst = [idx[r] for r in edges["post_pt_root_id"].to_numpy()]
-    g = ig.Graph(n=len(nodes), edges=list(zip(src, dst)), directed=True)
-    g.es["weight"] = edges["syn_count"].to_numpy() if "syn_count" in edges.columns else [5]*edges.height
+    # match Stage A exactly (run_stage_a.py:81-85): undirected projection, simplify, UNWEIGHTED
+    g = ig.Graph(n=len(nodes), edges=list(zip(src, dst)), directed=False)
+    g.simplify()
     del edges, src, dst
     print(f"graph {g.vcount()} nodes {g.ecount()} edges [{time.time()-t0:.0f}s]", flush=True)
     mods, ncomms, memberships = [], [], []
@@ -31,8 +32,8 @@ def main():
         else:
             perm = rng.permutation(g.vcount()).tolist()
             h = g.permute_vertices(perm)
-        c = h.community_multilevel(weights="weight", return_levels=False)
-        m = h.modularity(c, weights="weight")
+        c = h.community_multilevel(return_levels=False)
+        m = h.modularity(c)
         memb = np.empty(g.vcount(), dtype=np.int64)
         if r == 0:
             memb = np.array(c.membership, dtype=np.int64)
@@ -48,7 +49,7 @@ def main():
         vi_to_best.append(float(ig.compare_communities(memberships[best].tolist(), memberships[i].tolist(), method="vi")))
         for j in range(i+1, N):
             vi_pairs.append(float(ig.compare_communities(memberships[i].tolist(), memberships[j].tolist(), method="vi")))
-    res = {"spec": "A7/A10: 25 seeded vertex-order restarts, igraph community_multilevel, weighted, directed",
+    res = {"spec": "A7/A10: 25 seeded vertex-order restarts, igraph community_multilevel, unweighted undirected simplified (matches Stage A observed modularity procedure)",
            "master_seed": 23, "n_restarts": N,
            "modularity": {"min": min(mods), "max": max(mods), "mean": float(np.mean(mods)), "all": mods},
            "n_communities": {"min": min(ncomms), "max": max(ncomms), "all": ncomms},

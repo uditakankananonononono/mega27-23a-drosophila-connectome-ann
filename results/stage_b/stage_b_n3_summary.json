@@ -1,0 +1,62 @@
+{
+ "median_groups": 39,
+ "near_degenerate_le3": 3,
+ "sign_agreements": 162,
+ "sign_flips": [
+  [
+   "AMMC_R",
+   "012",
+   -16.1,
+   13.2
+  ],
+  [
+   "CRE_R",
+   "012",
+   -18.9,
+   33.4
+  ],
+  [
+   "LA_L",
+   "012",
+   -38877.4,
+   713366.3
+  ],
+  [
+   "LA_R",
+   "012",
+   -11302.0,
+   3643.2
+  ],
+  [
+   "MB_CA_L",
+   "012",
+   -5.3,
+   71.9
+  ],
+  [
+   "MB_CA_R",
+   "012",
+   -9.8,
+   173.5
+  ],
+  [
+   "MB_VL_R",
+   "012",
+   -10.1,
+   42.4
+  ],
+  [
+   "OCG",
+   "012",
+   -12.2,
+   80.6
+  ],
+  [
+   "SIP_R",
+   "012",
+   -18.4,
+   7.0
+  ]
+ ],
+ "note": "Tier 2. N3 within-neuropil is near-degenerate for most neuropils (median groups small); flips listed are the informative minority."
+}

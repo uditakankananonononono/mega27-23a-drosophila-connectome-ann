@@ -1,0 +1,64 @@
+name: stage_c_grid
+# DISPATCH-ONLY: runs only when manually dispatched with a job list.
+# 27 jobs x 60 consecutive manifest runs; each job commits per-run result JSONs
+# to branch results/job-N via GITHUB_TOKEN. Resume-safe (trainer skips existing results).
+on:
+  workflow_dispatch:
+    inputs:
+      jobs:
+        description: "Comma-separated job indices 0-26, in priority order (e.g. 6,7,8,3,4,5)"
+        required: true
+        type: string
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.m.outputs.matrix }}
+    steps:
+      - id: m
+        run: |
+          python3 - <<'PY'
+          import json, os
+          jobs = [int(x) for x in "${{ github.event.inputs.jobs }}".split(",") if x.strip() != ""]
+          assert all(0 <= j <= 26 for j in jobs), jobs
+          mat = [{"job": j, "start": j*60, "end": j*60+60} for j in jobs]
+          print("matrix=" + json.dumps({"include": mat}))
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write("matrix=" + json.dumps({"include": mat}) + "\n")
+          PY
+
+  run:
+    needs: setup
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.setup.outputs.matrix) }}
+    env:
+      OMP_NUM_THREADS: "4"
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch connectome exports (stage-c-data branch)
+        run: |
+          git fetch origin stage-c-data --depth 1
+          git checkout FETCH_HEAD -- exports/
+          ls -la exports/
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install torch CPU stack (pinned to on-box probe versions)
+        run: |
+          pip install --no-cache-dir torch==2.5.1+cpu torchvision==0.20.1+cpu --index-url https://download.pytorch.org/whl/cpu
+          pip install --no-cache-dir numpy
+      - name: Run slice ${{ matrix.job }} (runs ${{ matrix.start }}..${{ matrix.end }})
+        run: |
+          python3 code/stage_c/train.py ${{ matrix.start }} ${{ matrix.end }} results/stage_c/runs
+      - name: Commit results to results/job-${{ matrix.job }}
+        run: |
+          git config user.name "stage-c grid runner"
+          git config user.email "grid-runner@localhost"
+          git checkout -b results/job-${{ matrix.job }}
+          git add results/stage_c/runs/*.json
+          git commit -m "Stage C job ${{ matrix.job }}: runs ${{ matrix.start }}-${{ matrix.end }} ($(ls results/stage_c/runs/*.json | wc -l) results)"
+          git push -u origin results/job-${{ matrix.job }}

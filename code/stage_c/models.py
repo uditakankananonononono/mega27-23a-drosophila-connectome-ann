@@ -66,8 +66,10 @@ class SparseMLP(nn.Module):
     def forward(self, x):
         x = x.reshape(x.shape[0], -1)
         for i, (lin, m) in enumerate(zip(self.layers, self.masks)):
-            x = lin(x) * 1.0
-            with torch.no_grad(): lin.weight *= m  # keep masked during training
+            # functional mask: masked entries were zeroed at init and receive zero
+            # gradient, so they stay zero - identical training semantics to re-masking
+            # each step, but no in-place mutation that breaks autograd versioning
+            x = nn.functional.linear(x, lin.weight * m, lin.bias)
             if i < len(self.layers) - 1: x = torch.relu(x)
         return x
 
@@ -94,8 +96,8 @@ class FlyMLP(nn.Module):
     def forward(self, x):
         x = x.reshape(x.shape[0], -1)
         for i, (lin, m) in enumerate(zip(self.layers, self.masks)):
-            x = lin(x)
-            with torch.no_grad(): lin.weight *= m
+            # functional mask (see SparseMLP note): same training semantics, no in-place
+            x = nn.functional.linear(x, lin.weight * m, lin.bias)
             if i < len(self.layers) - 1: x = torch.relu(x)
         return x
 

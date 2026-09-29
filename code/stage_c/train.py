@@ -66,6 +66,9 @@ def main():
                         correct += int((out.argmax(1) == y).sum()); tot += len(y)
             hist.append({"epoch": ep, "val_mse" if is_reg else "val_acc":
                          (mse / len(te)) if is_reg else (correct / tot)})
+        ab = None
+        if run.get("ablation") and hasattr(model, "masks"):
+            ab = M.ablation_eval(model, dl_te, [0.0, 0.1, 0.2, 0.3, 0.4, 0.5], run["seed"], device, is_reg)
         flops = flop_count(model, d, run["task"])
         flops_eff = None
         if eff is not None and hasattr(model, "masks"):
@@ -73,7 +76,7 @@ def main():
         res = {"run_id": run["run_id"], "arm": run["arm"], "task": run["task"],
                "sigma": run["sigma"], "seed": run["seed"], "n_params": n_params,
                "n_params_effective": eff, "flops": flops, "flops_effective": flops_eff,
-               "epochs": hist, "final": hist[-1],
+               "epochs": hist, "final": hist[-1], "ablation": ab,
                "env": {"torch": torch.__version__, "numpy": __import__("numpy").__version__},
                "elapsed_s": time.time() - t0}
         json.dump(res, open(out_path, "w"), indent=1)

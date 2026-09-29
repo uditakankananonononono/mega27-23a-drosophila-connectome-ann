@@ -155,6 +155,36 @@ def match_edge_count(masks_add, masks_target):
         li += 1
     return add
 
+def ablation_eval(model, dl, fractions, seed, device, is_reg):
+    """G2 (pre-registered): random neuron ablation robustness. For each fraction,
+    zero that fraction of hidden-unit activations per hidden layer (seeded per run),
+    measure val accuracy/MSE. Returns {frac: metric}. Applies to SparseMLP/FlyMLP
+    families (models exposing .layers and .masks)."""
+    out = {}
+    hidden_idx = list(range(len(model.layers) - 1))
+    for frac in fractions:
+        g = torch.Generator().manual_seed(seed + int(frac * 1000))
+        unit_masks = []
+        for li in hidden_idx:
+            h = model.layers[li].out_features
+            keep = (torch.rand(h, generator=g) >= frac).float().to(device)
+            unit_masks.append(keep)
+        correct = tot = 0; mse = 0.0
+        with torch.no_grad():
+            for x, y in dl:
+                x = x.to(device); y = y.to(device)
+                x = x.reshape(x.shape[0], -1)
+                for i, (lin, m) in enumerate(zip(model.layers, model.masks)):
+                    x = torch.nn.functional.linear(x, lin.weight * m, lin.bias)
+                    if i < len(model.layers) - 1:
+                        x = torch.relu(x) * unit_masks[i]
+                if is_reg:
+                    mse += float(((x.squeeze() - y.squeeze()) ** 2).sum())
+                else:
+                    correct += int((x.argmax(1) == y).sum()); tot += len(y)
+        out[str(frac)] = (mse / tot) if is_reg else (correct / tot)
+    return out
+
 def load_fly_masks(spec, dims, seed, a17):
     """Project the exported fly adjacency onto per-layer masks per the A17 spec.
     Implementation of the FROZEN mapping rule; the rule text lives in A17.

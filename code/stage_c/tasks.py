@@ -22,7 +22,7 @@ def get_task(run, a17, data_root):
             tr = Noisy(tr, sigma, seed); te = Noisy(te, sigma, seed + 1)
         return tr, te, 784, 10
     if task == "T3_adding":
-        return Adding(5000, 50, seed), Adding(1000, 50, seed + 1), 2, 1
+        return Adding(5000, 50, seed), Adding(1000, 50, seed + 1), 100, 1  # flattened 50x2
     if task == "T5_cifar10_subset":
         import torchvision
         tf = torchvision.transforms.Compose([torchvision.transforms.ToTensor()])

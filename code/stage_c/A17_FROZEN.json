@@ -1,0 +1,85 @@
+{
+ "frozen": "2026-09-29",
+ "hidden_sizes": [
+  256,
+  256,
+  128
+ ],
+ "epoch_budget": {
+  "T1_mnist_noise": 15,
+  "T2_fashion": 15,
+  "T3_adding": 30,
+  "T4_permuted_mnist": 15,
+  "T5_cifar10_subset": 15
+ },
+ "reference_params": {
+  "T1_mnist_noise": 300938,
+  "T2_fashion": 300938,
+  "T3_adding": 124673,
+  "T4_permuted_mnist": 300938,
+  "T5_cifar10_subset": 886021
+ },
+ "reference_note": "MLP family only; small_cnn is a locked C3 exception (A17 doc)",
+ "sparse_density_by_task": {
+  "d784": 0.01518542199488491,
+  "d100": 0.023727747678018576,
+  "d3072": 0.005988416220905016
+ },
+ "cifar10_subset_classes": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "cnn_channels": [
+  16,
+  32
+ ],
+ "graph_export_dir": "exports",
+ "fly_wiring": {
+  "fly_m": {
+   "export": "fly_graph_whole.npz"
+  },
+  "ctrl_dp_shuffled": {
+   "export": "fly_graph_dp_shuffled.npz"
+  },
+  "fly_mod": {
+   "export": "fly_graph_modular.npz",
+   "block_layer_map": [
+    null,
+    0,
+    1,
+    1,
+    null
+   ]
+  },
+  "fly_ms_conditional": {
+   "export": "fly_graph_whole.npz",
+   "signs": null
+  }
+ },
+ "fly_ms_enabled": false,
+ "fly_ms_gate": "built only if the Tier-3 predicted-NT structure analysis shows structure (C2); not yet run",
+ "arms_active": [
+  "base_dense",
+  "base_sparse",
+  "fly_m",
+  "ctrl_rand_sparse",
+  "ctrl_dp_shuffled",
+  "ctrl_er_sparse",
+  "small_cnn",
+  "fly_mod"
+ ],
+ "applicability": {
+  "T3_adding": [
+   "base_dense",
+   "base_sparse",
+   "fly_m",
+   "ctrl_rand_sparse",
+   "ctrl_dp_shuffled",
+   "ctrl_er_sparse",
+   "fly_mod"
+  ]
+ }
+}

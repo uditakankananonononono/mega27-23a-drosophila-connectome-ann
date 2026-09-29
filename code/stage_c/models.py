@@ -18,12 +18,14 @@ def build(run, a17, input_dim, n_classes, device):
         return SmallCNN(input_dim, n_classes, a17).to(device)
     if arm == "base_dense":
         return DenseMLP(input_dim, hidden, n_classes).to(device)
+    dkey = "d100" if input_dim == 100 else ("d3072" if input_dim == 3072 else "d784")
+    dens = a17["sparse_density_by_task"][dkey]
     if arm == "base_sparse":
-        return SparseMLP(input_dim, hidden, n_classes, density=a17["sparse_density"], seed=run["seed"]).to(device)
+        return SparseMLP(input_dim, hidden, n_classes, density=dens, seed=run["seed"]).to(device)
     if arm == "ctrl_rand_sparse":
-        return SparseMLP(input_dim, hidden, n_classes, density=a17["sparse_density"], seed=run["seed"] + 777).to(device)
+        return SparseMLP(input_dim, hidden, n_classes, density=dens, seed=run["seed"] + 777).to(device)
     if arm == "ctrl_er_sparse":
-        return SparseMLP(input_dim, hidden, n_classes, density=a17["sparse_density"], seed=run["seed"] + 555).to(device)
+        return SparseMLP(input_dim, hidden, n_classes, density=dens, seed=run["seed"] + 555).to(device)
     if arm in ("fly_m", "fly_ms_conditional", "ctrl_dp_shuffled", "fly_mod"):
         return FlyMLP(input_dim, hidden, n_classes, arm, run, a17).to(device)
     raise ValueError(arm)
@@ -99,29 +101,45 @@ class FlyMLP(nn.Module):
 
 def load_fly_masks(spec, dims, seed, a17):
     """Project the exported fly adjacency onto per-layer masks per the A17 spec.
-    Implementation of the FROZEN mapping rule; the rule text lives in A17."""
+    Implementation of the FROZEN mapping rule; the rule text lives in A17.
+    ctrl_dp_shuffled uses its own pre-shuffled export (true degree-preserving rewire,
+    C engine, fixed seed - no runtime permutation). fly_mod restricts per-layer node
+    sampling to neuropil blocks per spec['block_layer_map']."""
     import os
-    rng = np.random.default_rng(seed)
     path = os.path.join(a17["graph_export_dir"], spec["export"])
-    data = np.load(path)  # npz: src, dst (node indices into the exported node list)
+    data = np.load(path)  # npz: src, dst, n_nodes [, block]
+    src, dst = data["src"].astype(np.int64), data["dst"].astype(np.int64)
     n = int(data["n_nodes"])
-    # sample layer node subsets deterministically
-    masks, prev_idx = [], None
-    for li, dim in enumerate(dims):
-        if li == 0:
-            prev_idx = rng.choice(n, min(dim, n), replace=(dim > n))
-            continue
-        cur_idx = rng.choice(n, min(dim, n), replace=(dim > n))
-        sub = np.zeros((dim, len(prev_idx)), dtype=np.float32)
-        # edges prev->cur projected: bucket source/target nodes to layer positions
-        # (mapping rule detail frozen in A17: bucket = node_index % layer_dim)
-        src_b = data["src"] % len(prev_idx); dst_b = data["dst"] % dim
-        sel = np.isin(data["src"], prev_idx) & np.isin(data["dst"], cur_idx)
-        sub[dst_b[sel], np.searchsorted(prev_idx, data["src"][sel])] = 1.0
+    blocks = data["block"] if "block" in data.files else None
+    blm = spec.get("block_layer_map")
+    # FROZEN RULE (A17): degree-stratified 1-1 node->unit mapping. Nodes sorted by
+    # total degree (desc); layer l takes contiguous strata (hub-rich subgraph keeps
+    # masks trainable; random-node projection is degenerate at brain sparsity).
+    # fly_mod: strata computed within each block's nodes per block_layer_map.
+    deg = np.bincount(src, minlength=n) + np.bincount(dst, minlength=n)
+    order = np.argsort(deg)[::-1]
+    if blm is not None and blocks is not None:
+        strata = []
+        for li, dim in enumerate(dims):
+            b = blm[min(li, len(blm) - 1)]
+            pool = order if b is None else order[blocks[order] == b]
+            take = min(dim, len(pool))
+            strata.append(pool[:take])
+    else:
+        strata, off = [], 0
+        for dim in dims:
+            strata.append(order[off:off + dim]); off += dim
+    masks = []
+    for li in range(1, len(dims)):
+        prev_idx, cur_idx = strata[li - 1], strata[li]
+        pos = np.empty(n, dtype=np.int64); pos[prev_idx] = np.arange(len(prev_idx))
+        posc = np.empty(n, dtype=np.int64); posc[cur_idx] = np.arange(len(cur_idx))
+        inset_p = np.zeros(n, bool); inset_p[prev_idx] = True
+        inset_c = np.zeros(n, bool); inset_c[cur_idx] = True
+        sel = inset_p[src] & inset_c[dst]
+        sub = np.zeros((len(cur_idx), len(prev_idx)), dtype=np.float32)
+        sub[posc[dst[sel]], pos[src[sel]]] = 1.0
         masks.append(torch.tensor(sub))
-        prev_idx = cur_idx
-    if spec.get("shuffle") == "degree_preserving":
-        masks = [torch.tensor(m.numpy()[rng.permutation(m.shape[0])][:, rng.permutation(m.shape[1])]) for m in masks]
     return masks
 
 class SmallCNN(nn.Module):

@@ -26,6 +26,10 @@ def main():
     for run in runs:
         if run["arm"] not in a17["applicability"].get(run["task"], a17["arms_active"]):
             continue
+        out_path = os.path.join(out_dir, run["run_id"] + ".json")
+        if os.path.exists(out_path):
+            print(f"{run['run_id']} skip (result exists)", flush=True)
+            continue
         if run["arm"] == "fly_ms_conditional" and not a17.get("fly_ms_enabled", False):
             continue
         t0 = time.time()
@@ -71,7 +75,7 @@ def main():
                "epochs": hist, "final": hist[-1],
                "env": {"torch": torch.__version__, "numpy": __import__("numpy").__version__},
                "elapsed_s": time.time() - t0}
-        json.dump(res, open(os.path.join(out_dir, run["run_id"] + ".json"), "w"), indent=1)
+        json.dump(res, open(out_path, "w"), indent=1)
         print(f"{run['run_id']} done [{time.time()-t0:.0f}s]", flush=True)
 
 def flop_count(model, d, task):

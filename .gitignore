@@ -7,3 +7,4 @@ results/**/*.parquet
 results/**/*.feather
 results/**/*.npy
 !results/**/*.json
+exports/

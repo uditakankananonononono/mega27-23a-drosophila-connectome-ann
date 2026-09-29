@@ -24,10 +24,17 @@ def main():
     os.makedirs(out_dir, exist_ok=True)
     device = "cuda" if torch.cuda.is_available() else "cpu"
     for run in runs:
+        if run["arm"] not in a17["applicability"].get(run["task"], a17["arms_active"]):
+            continue
+        if run["arm"] == "fly_ms_conditional" and not a17.get("fly_ms_enabled", False):
+            continue
         t0 = time.time()
         tr, te, d, c = T.get_task(run, a17, data_root)
         model = M.build(run, a17, d, c, device)
         n_params = M.count_params(model)
+        eff = None
+        if hasattr(model, "masks"):
+            eff = int(sum(int((m > 0).sum()) for m in model.masks))
         ref = a17["reference_params"][run["task"]]
         assert abs(n_params - ref) / ref <= 0.05, f"C3 violated: {run['run_id']} {n_params} vs {ref}"
         dl = torch.utils.data.DataLoader(tr, batch_size=128, shuffle=True,
@@ -55,9 +62,13 @@ def main():
             hist.append({"epoch": ep, "val_mse" if is_reg else "val_acc":
                          (mse / len(te)) if is_reg else (correct / tot)})
         flops = flop_count(model, d, run["task"])
+        flops_eff = None
+        if eff is not None and hasattr(model, "masks"):
+            flops_eff = 2 * eff
         res = {"run_id": run["run_id"], "arm": run["arm"], "task": run["task"],
                "sigma": run["sigma"], "seed": run["seed"], "n_params": n_params,
-               "flops": flops, "epochs": hist, "final": hist[-1],
+               "n_params_effective": eff, "flops": flops, "flops_effective": flops_eff,
+               "epochs": hist, "final": hist[-1],
                "env": {"torch": torch.__version__, "numpy": __import__("numpy").__version__},
                "elapsed_s": time.time() - t0}
         json.dump(res, open(os.path.join(out_dir, run["run_id"] + ".json"), "w"), indent=1)

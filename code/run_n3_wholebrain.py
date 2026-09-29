@@ -13,6 +13,15 @@ from pyarrow import ipc as _ipc
 sys.path.insert(0, os.path.dirname(__file__))
 import nulls, nulls_convergence, fast_census
 import scipy.sparse as sp
+import ctypes as _ct
+_LIB = _ct.CDLL(os.path.join(os.path.dirname(__file__), "dp_rewire_c.so"))
+_LIB.dp_rewire_c.restype = _ct.c_longlong
+_LIB.dp_rewire_c.argtypes = [_ct.c_void_p, _ct.c_void_p, _ct.c_longlong, _ct.c_longlong, _ct.c_longlong, _ct.c_uint64]
+def _c_rewire(pre, post, n, swaps, seed):
+    p = pre.astype(np.int64).copy(); q = post.astype(np.int64).copy()
+    acc = _LIB.dp_rewire_c(p.ctypes.data, q.ctypes.data, len(p), n, swaps, seed)
+    if acc < swaps: print(f"WARN stall: {acc}/{swaps}", flush=True)
+    return p, q
 
 OUTA = os.path.join(os.path.dirname(__file__), "..", "results", "stage_a")
 RAW = os.path.join(os.path.dirname(__file__), "..", "data", "raw")
@@ -80,7 +89,7 @@ def main():
         gs = np.random.SeedSequence(seeds[i]).spawn(len(groups))
         for gidx, gss in zip(groups, gs):
             s = int(gss.generate_state(1)[0])
-            p2, q2 = nulls.dp_rewire_fast(src_all[gidx], dst_all[gidx], n_nodes, SWAPS * len(gidx), s)
+            p2, q2 = _c_rewire(src_all[gidx], dst_all[gidx], n_nodes, SWAPS * len(gidx), s)
             p[gidx], q[gidx] = p2, q2
         A = sp.csr_matrix((np.ones(len(p), dtype=np.int64), (p, q)), shape=(n_nodes, n_nodes))
         A.sum_duplicates(); A.data[:] = 1; A.setdiag(0); A.eliminate_zeros()
@@ -110,7 +119,7 @@ def main():
         q[j] = val; prev = val
     res = {"family": "N3 compartment-preserving (endpoint primary neuropil, per-side)", "tier": 1,
            "n_null": N_NULL, "swaps_per_edge": SWAPS, "master_seed": MASTER_SEED,
-           "engine": "dp_rewire_fast per compartment group (same N1 semantics as dp_rewire_np)",
+           "engine": "dp_rewire_c (C, same acceptance semantics as dp_rewire_fast; tests/test_dp_rewire_c.py + cross-check PASS)",
            "singleton_edges_fixed": n_single, "n_groups": len(groups),
            "classes": CL, "observed": ob.tolist(), "null_mean": mean.tolist(), "null_sd": sd.tolist(),
            "z": z.tolist(), "emp_p": emp.tolist(), "bh_q": q.tolist(),

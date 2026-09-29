@@ -81,7 +81,9 @@
    "ctrl_rand_sparse",
    "ctrl_dp_shuffled",
    "ctrl_er_sparse",
-   "fly_mod"
+   "fly_mod",
+   "fly_m_c",
+   "ctrl_rand_sparse_c"
   ]
  },
  "fly_ms_conditional_admitted": true,

@@ -1,3 +1,5 @@
+> SUPERSEDED 2026-09-29 by B4_RANKED_CANDIDATES.md (locked) - retained for history only.
+
 # WORKING DRAFT - NOT THE LOCKED B4 LIST / C1 MAPPING
 Status: draft for finalization AFTER the N3 whole-brain arm lands (~10h).
 The locked B4 ranked list and C1 mapping table will be committed before any Stage C

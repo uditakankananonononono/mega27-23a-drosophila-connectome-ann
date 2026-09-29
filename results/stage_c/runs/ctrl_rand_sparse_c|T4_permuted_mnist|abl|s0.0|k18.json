@@ -1,0 +1,90 @@
+{
+ "run_id": "ctrl_rand_sparse_c|T4_permuted_mnist|abl|s0.0|k18",
+ "arm": "ctrl_rand_sparse_c",
+ "task": "T4_permuted_mnist",
+ "sigma": 0.0,
+ "seed": 3974300656,
+ "n_params": 300938,
+ "n_params_effective": 4702,
+ "flops": 600576,
+ "flops_effective": 9404,
+ "epochs": [
+  {
+   "epoch": 0,
+   "val_acc": 0.4552
+  },
+  {
+   "epoch": 1,
+   "val_acc": 0.7038
+  },
+  {
+   "epoch": 2,
+   "val_acc": 0.747
+  },
+  {
+   "epoch": 3,
+   "val_acc": 0.7872
+  },
+  {
+   "epoch": 4,
+   "val_acc": 0.8233
+  },
+  {
+   "epoch": 5,
+   "val_acc": 0.8388
+  },
+  {
+   "epoch": 6,
+   "val_acc": 0.8459
+  },
+  {
+   "epoch": 7,
+   "val_acc": 0.8535
+  },
+  {
+   "epoch": 8,
+   "val_acc": 0.8599
+  },
+  {
+   "epoch": 9,
+   "val_acc": 0.8615
+  },
+  {
+   "epoch": 10,
+   "val_acc": 0.8629
+  },
+  {
+   "epoch": 11,
+   "val_acc": 0.865
+  },
+  {
+   "epoch": 12,
+   "val_acc": 0.8648
+  },
+  {
+   "epoch": 13,
+   "val_acc": 0.8664
+  },
+  {
+   "epoch": 14,
+   "val_acc": 0.8667
+  }
+ ],
+ "final": {
+  "epoch": 14,
+  "val_acc": 0.8667
+ },
+ "ablation": {
+  "0.0": 0.8667,
+  "0.1": 0.676,
+  "0.2": 0.355,
+  "0.3": 0.3417,
+  "0.4": 0.2101,
+  "0.5": 0.0892
+ },
+ "env": {
+  "torch": "2.5.1+cpu",
+  "numpy": "2.4.6"
+ },
+ "elapsed_s": 96.10831260681152
+}

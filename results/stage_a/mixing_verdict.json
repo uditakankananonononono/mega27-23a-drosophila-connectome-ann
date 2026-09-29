@@ -1,0 +1,50 @@
+{
+ "amendment": "A26 rule (b) applied: NOT converged at 40E on any of 3 chains",
+ "mixing_unresolved_classes": [
+  "111D",
+  "111U",
+  "120C",
+  "120D",
+  "120U",
+  "201",
+  "210",
+  "300"
+ ],
+ "mixing_unresolved_z_dp_context_not_headline": {
+  "111D": 211.79162923379874,
+  "111U": 221.15373135165655,
+  "120C": 428.3789629062984,
+  "120D": 769.1806712352121,
+  "120U": 774.2961634287617,
+  "201": 1786.8128265523933,
+  "210": 1344.9316905935916,
+  "300": 4647.4221720520745
+ },
+ "headline_safe_classes": [
+  "003",
+  "012",
+  "102",
+  "021D",
+  "021U",
+  "021C",
+  "030T",
+  "030C"
+ ],
+ "headline_safe_z_dp": {
+  "003": 2843.3425949728967,
+  "012": -2877.2444919308955,
+  "102": 2844.558801573447,
+  "021D": -390.5236625147195,
+  "021U": -407.4520809059753,
+  "021C": -389.3702214279128,
+  "030T": 637.6224991853693,
+  "030C": 123.69058656672486
+ },
+ "amendment_literal_set": [
+  "111D",
+  "111U",
+  "201",
+  "210"
+ ],
+ "conservative_set_note": "AMENDMENT-6 named the 4 A13-flagged classes; 4 more (120C,120D,120U,300) failed on >=1 40E chain and are conservatively included. All are small-count classes at 40E (high relative drift from small denominators); converged classes carry the paper's headline claims."
+}

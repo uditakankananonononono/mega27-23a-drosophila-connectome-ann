@@ -1,0 +1,76 @@
+{
+ "batch": "a27_p27",
+ "date": "2026-09-29",
+ "n_runs": 360,
+ "g1r": {
+  "metric": "T1 noise-AUC (trapezoid over sigma 0-1.5, final-epoch val_acc)",
+  "fly_m_c_mean": 0.26383583333333327,
+  "fly_m_c_std": 0.03487306357626821,
+  "ctrl_rand_sparse_c_mean": 0.5898808333333333,
+  "ctrl_rand_sparse_c_std": 0.03430399242840078,
+  "paired_diff_mean": -0.326045,
+  "wins_fly": 0,
+  "wilcoxon_Wplus": 0.0,
+  "n": 20,
+  "p": 1.9073486328125e-06,
+  "method": "exact",
+  "H27": "NOT SUPPORTED"
+ },
+ "per_sigma": {
+  "0.0": {
+   "fly": 0.36758,
+   "ctrl": 0.8648049999999999
+  },
+  "0.5": {
+   "fly": 0.31832,
+   "ctrl": 0.6744100000000002
+  },
+  "1.0": {
+   "fly": 0.20541,
+   "ctrl": 0.487845
+  },
+  "1.5": {
+   "fly": 0.16797500000000004,
+   "ctrl": 0.34997
+  }
+ },
+ "secondaries": {
+  "T2_fashion|s0.0": {
+   "fly_mean": 0.408535,
+   "ctrl_mean": 0.80846,
+   "wins_fly": 0,
+   "p": 1.9073486328125e-06
+  },
+  "T2_fashion|s1.0": {
+   "fly_mean": 0.27485,
+   "ctrl_mean": 0.527775,
+   "wins_fly": 0,
+   "p": 1.9073486328125e-06
+  },
+  "T4_permuted_mnist|s0.0": {
+   "fly_mean": 0.407285,
+   "ctrl_mean": 0.8303149999999999,
+   "wins_fly": 0,
+   "p": 1.9073486328125e-06
+  },
+  "T5_cifar10_subset|s0.0": {
+   "fly_mean": 0.32571000000000006,
+   "ctrl_mean": 0.4885299999999999,
+   "wins_fly": 1,
+   "p": 3.814697265625e-06
+  },
+  "T3_adding|s0.0": {
+   "fly_mean": 0.1752666618347168,
+   "ctrl_mean": 0.16624537086486818,
+   "wins_fly": 7,
+   "p": 0.13272666931152344
+  }
+ },
+ "repair_effect": {
+  "wave1_fly_m_auc": 0.12647999999999998,
+  "a27_fly_m_c_auc": 0.26383583333333327,
+  "delta": 0.1373558333333333,
+  "note": "repair raised fly arm but remains far below edge-matched random control"
+ },
+ "interpretation": "With projection reachability repaired (0 dead rows, 10/10 outputs) and exact edge-count match, FlyWire-derived connectivity still underperforms the random sparse control on every task. G1 is an honest negative across two pre-registered attempts."
+}

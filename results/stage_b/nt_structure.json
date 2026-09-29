@@ -1,0 +1,657 @@
+{
+ "basis": "graph edges (>=5 synapses), per-connection dominant predicted NT (argmax of averages)",
+ "note": "A5: predicted-neurotransmitter-associated organization; NO functional excitation/inhibition claim",
+ "edge_level_dominant_nt_counts": {
+  "gaba": 865318,
+  "ach": 2258155,
+  "glut": 654183,
+  "oct": 17067,
+  "ser": 37450,
+  "da": 36654
+ },
+ "synapse_weighted_dominant_nt_counts": {
+  "gaba": 8285491,
+  "ach": 19547816,
+  "glut": 5646373,
+  "oct": 95762,
+  "ser": 340040,
+  "da": 208626
+ },
+ "edges_skipped_no_prediction": 1051,
+ "gaba_dominant_edge_fraction": 0.22366417521383097,
+ "per_neuropil_dominant_nt_counts": {
+  "AL_L": {
+   "gaba": 8277,
+   "ach": 19267,
+   "glut": 2055,
+   "oct": 92,
+   "ser": 5442,
+   "da": 1494
+  },
+  "AL_R": {
+   "gaba": 7518,
+   "ach": 20576,
+   "glut": 2212,
+   "oct": 100,
+   "ser": 5243,
+   "da": 1130
+  },
+  "AMMC_L": {
+   "gaba": 6434,
+   "ach": 5408,
+   "glut": 1367,
+   "oct": 15,
+   "ser": 88,
+   "da": 86
+  },
+  "AMMC_R": {
+   "gaba": 4688,
+   "ach": 4720,
+   "glut": 2341,
+   "oct": 18,
+   "ser": 366,
+   "da": 84
+  },
+  "AOTU_L": {
+   "gaba": 2198,
+   "ach": 7553,
+   "glut": 2269,
+   "oct": 7,
+   "ser": 8,
+   "da": 103
+  },
+  "AOTU_R": {
+   "gaba": 3299,
+   "ach": 8979,
+   "glut": 1925,
+   "oct": 10,
+   "ser": 37,
+   "da": 190
+  },
+  "AVLP_L": {
+   "gaba": 23453,
+   "ach": 60356,
+   "glut": 12793,
+   "oct": 370,
+   "ser": 338,
+   "da": 1089
+  },
+  "AVLP_R": {
+   "gaba": 32047,
+   "ach": 81491,
+   "glut": 13970,
+   "oct": 972,
+   "ser": 832,
+   "da": 1832
+  },
+  "CRE_L": {
+   "gaba": 5735,
+   "ach": 22460,
+   "glut": 6637,
+   "oct": 116,
+   "ser": 299,
+   "da": 1203
+  },
+  "CRE_R": {
+   "gaba": 6589,
+   "ach": 22924,
+   "glut": 6116,
+   "oct": 104,
+   "ser": 393,
+   "da": 1233
+  },
+  "EB": {
+   "gaba": 12748,
+   "ach": 3470,
+   "glut": 407,
+   "oct": 52,
+   "ser": 75,
+   "da": 270
+  },
+  "FLA_L": {
+   "gaba": 2841,
+   "ach": 8185,
+   "glut": 2726,
+   "oct": 50,
+   "ser": 862,
+   "da": 294
+  },
+  "FLA_R": {
+   "gaba": 3338,
+   "ach": 9853,
+   "glut": 3491,
+   "oct": 81,
+   "ser": 957,
+   "da": 273
+  },
+  "GA_L": {
+   "gaba": 267,
+   "ach": 1044,
+   "glut": 428,
+   "oct": 30,
+   "ser": 15,
+   "da": 59
+  },
+  "GA_R": {
+   "gaba": 214,
+   "ach": 832,
+   "glut": 202,
+   "oct": 7,
+   "ser": 27,
+   "da": 36
+  },
+  "GNG": {
+   "gaba": 38777,
+   "ach": 83188,
+   "glut": 26918,
+   "oct": 266,
+   "ser": 3869,
+   "da": 1926
+  },
+  "LAL_L": {
+   "gaba": 7879,
+   "ach": 19608,
+   "glut": 5583,
+   "oct": 422,
+   "ser": 162,
+   "da": 382
+  },
+  "LAL_R": {
+   "gaba": 7761,
+   "ach": 18134,
+   "glut": 4813,
+   "oct": 400,
+   "ser": 143,
+   "da": 322
+  },
+  "LA_R": {
+   "gaba": 3712,
+   "ach": 9330,
+   "glut": 3637,
+   "oct": 92,
+   "ser": 163,
+   "da": 609
+  },
+  "MB_ML_L": {
+   "gaba": 3886,
+   "ach": 16529,
+   "glut": 1564,
+   "oct": 32,
+   "ser": 157,
+   "da": 1293
+  },
+  "MB_ML_R": {
+   "gaba": 3485,
+   "ach": 13711,
+   "glut": 849,
+   "oct": 33,
+   "ser": 295,
+   "da": 1268
+  },
+  "MB_PED_L": {
+   "gaba": 3238,
+   "ach": 12096,
+   "glut": 1638,
+   "oct": 28,
+   "ser": 178,
+   "da": 286
+  },
+  "MB_PED_R": {
+   "gaba": 3508,
+   "ach": 12891,
+   "glut": 1700,
+   "oct": 46,
+   "ser": 146,
+   "da": 314
+  },
+  "MB_VL_L": {
+   "gaba": 1721,
+   "ach": 9326,
+   "glut": 1336,
+   "oct": 5,
+   "ser": 83,
+   "da": 486
+  },
+  "MB_VL_R": {
+   "gaba": 1795,
+   "ach": 9207,
+   "glut": 602,
+   "oct": 6,
+   "ser": 38,
+   "da": 424
+  },
+  "PRW": {
+   "gaba": 7212,
+   "ach": 16543,
+   "glut": 5848,
+   "oct": 99,
+   "ser": 1846,
+   "da": 504
+  },
+  "PVLP_R": {
+   "gaba": 14949,
+   "ach": 46720,
+   "glut": 7468,
+   "oct": 1644,
+   "ser": 324,
+   "da": 750
+  },
+  "SAD": {
+   "gaba": 23247,
+   "ach": 33571,
+   "glut": 9707,
+   "oct": 145,
+   "ser": 1223,
+   "da": 646
+  },
+  "SIP_L": {
+   "gaba": 4295,
+   "ach": 15746,
+   "glut": 5573,
+   "oct": 30,
+   "ser": 239,
+   "da": 416
+  },
+  "SIP_R": {
+   "gaba": 5288,
+   "ach": 16420,
+   "glut": 6286,
+   "oct": 54,
+   "ser": 161,
+   "da": 505
+  },
+  "SLP_R": {
+   "gaba": 9907,
+   "ach": 33936,
+   "glut": 13916,
+   "oct": 115,
+   "ser": 737,
+   "da": 545
+  },
+  "SMP_L": {
+   "gaba": 6472,
+   "ach": 35393,
+   "glut": 18711,
+   "oct": 70,
+   "ser": 1139,
+   "da": 932
+  },
+  "SMP_R": {
+   "gaba": 8177,
+   "ach": 39294,
+   "glut": 19561,
+   "oct": 75,
+   "ser": 1154,
+   "da": 1065
+  },
+  "AME_L": {
+   "gaba": 344,
+   "ach": 769,
+   "glut": 271,
+   "oct": 14,
+   "ser": 7,
+   "da": 19
+  },
+  "AME_R": {
+   "gaba": 276,
+   "ach": 827,
+   "glut": 259,
+   "oct": 10,
+   "ser": 11,
+   "da": 17
+  },
+  "ATL_L": {
+   "gaba": 732,
+   "ach": 3788,
+   "glut": 1478,
+   "oct": 11,
+   "ser": 169,
+   "da": 146
+  },
+  "ATL_R": {
+   "gaba": 594,
+   "ach": 3404,
+   "glut": 1502,
+   "oct": 11,
+   "ser": 144,
+   "da": 183
+  },
+  "BU_L": {
+   "gaba": 213,
+   "ach": 343,
+   "glut": 58,
+   "oct": 1,
+   "ser": 4,
+   "da": 13
+  },
+  "BU_R": {
+   "gaba": 162,
+   "ach": 600,
+   "glut": 158,
+   "oct": 7,
+   "ser": 36,
+   "da": 80
+  },
+  "CAN_L": {
+   "gaba": 759,
+   "ach": 1839,
+   "glut": 354,
+   "oct": 2,
+   "ser": 28,
+   "da": 15
+  },
+  "CAN_R": {
+   "gaba": 809,
+   "ach": 2344,
+   "glut": 637,
+   "oct": 6,
+   "ser": 35,
+   "da": 29
+  },
+  "EPA_L": {
+   "gaba": 2673,
+   "ach": 6810,
+   "glut": 1928,
+   "oct": 124,
+   "ser": 18,
+   "da": 98
+  },
+  "EPA_R": {
+   "gaba": 2420,
+   "ach": 5562,
+   "glut": 1404,
+   "oct": 99,
+   "ser": 35,
+   "da": 85
+  },
+  "FB": {
+   "gaba": 3058,
+   "ach": 20173,
+   "glut": 21589,
+   "oct": 75,
+   "ser": 2208,
+   "da": 2018
+  },
+  "GOR_L": {
+   "gaba": 2737,
+   "ach": 7538,
+   "glut": 2042,
+   "oct": 32,
+   "ser": 134,
+   "da": 147
+  },
+  "GOR_R": {
+   "gaba": 2863,
+   "ach": 7896,
+   "glut": 2434,
+   "oct": 38,
+   "ser": 177,
+   "da": 136
+  },
+  "IB_L": {
+   "gaba": 2726,
+   "ach": 11306,
+   "glut": 6471,
+   "oct": 57,
+   "ser": 337,
+   "da": 334
+  },
+  "IB_R": {
+   "gaba": 3146,
+   "ach": 12194,
+   "glut": 6701,
+   "oct": 54,
+   "ser": 331,
+   "da": 309
+  },
+  "ICL_L": {
+   "gaba": 7513,
+   "ach": 23319,
+   "glut": 8742,
+   "oct": 127,
+   "ser": 436,
+   "da": 407
+  },
+  "ICL_R": {
+   "gaba": 8787,
+   "ach": 25857,
+   "glut": 9115,
+   "oct": 139,
+   "ser": 490,
+   "da": 480
+  },
+  "IPS_L": {
+   "gaba": 9342,
+   "ach": 24184,
+   "glut": 10251,
+   "oct": 249,
+   "ser": 261,
+   "da": 249
+  },
+  "IPS_R": {
+   "gaba": 9134,
+   "ach": 24164,
+   "glut": 10070,
+   "oct": 245,
+   "ser": 194,
+   "da": 288
+  },
+  "LA_L": {
+   "gaba": 1689,
+   "ach": 7676,
+   "glut": 688,
+   "oct": 53,
+   "ser": 223,
+   "da": 148
+  },
+  "LH_L": {
+   "gaba": 9638,
+   "ach": 23466,
+   "glut": 7529,
+   "oct": 88,
+   "ser": 138,
+   "da": 270
+  },
+  "LH_R": {
+   "gaba": 12221,
+   "ach": 25938,
+   "glut": 8304,
+   "oct": 130,
+   "ser": 139,
+   "da": 358
+  },
+  "LOP_L": {
+   "gaba": 14800,
+   "ach": 39986,
+   "glut": 13391,
+   "oct": 92,
+   "ser": 5,
+   "da": 88
+  },
+  "LOP_R": {
+   "gaba": 19954,
+   "ach": 66841,
+   "glut": 28023,
+   "oct": 349,
+   "ser": 13,
+   "da": 133
+  },
+  "LO_L": {
+   "gaba": 37754,
+   "ach": 150876,
+   "glut": 29405,
+   "oct": 462,
+   "ser": 34,
+   "da": 491
+  },
+  "LO_R": {
+   "gaba": 41027,
+   "ach": 155874,
+   "glut": 33963,
+   "oct": 841,
+   "ser": 44,
+   "da": 370
+  },
+  "MB_CA_L": {
+   "gaba": 3594,
+   "ach": 16172,
+   "glut": 603,
+   "oct": 28,
+   "ser": 73,
+   "da": 106
+  },
+  "MB_CA_R": {
+   "gaba": 3414,
+   "ach": 15682,
+   "glut": 734,
+   "oct": 35,
+   "ser": 120,
+   "da": 126
+  },
+  "ME_L": {
+   "gaba": 122405,
+   "ach": 228547,
+   "glut": 67415,
+   "oct": 1919,
+   "ser": 132,
+   "da": 674
+  },
+  "ME_R": {
+   "gaba": 139873,
+   "ach": 267711,
+   "glut": 77041,
+   "oct": 3473,
+   "ser": 165,
+   "da": 438
+  },
+  "NO": {
+   "gaba": 1223,
+   "ach": 3945,
+   "glut": 471,
+   "oct": 14,
+   "ser": 167,
+   "da": 583
+  },
+  "OCG": {
+   "gaba": 81,
+   "ach": 174,
+   "glut": 178,
+   "oct": 4,
+   "ser": 181,
+   "da": 0
+  },
+  "PB": {
+   "gaba": 278,
+   "ach": 2916,
+   "glut": 2196,
+   "oct": 16,
+   "ser": 180,
+   "da": 89
+  },
+  "PLP_L": {
+   "gaba": 16473,
+   "ach": 45780,
+   "glut": 9698,
+   "oct": 242,
+   "ser": 263,
+   "da": 821
+  },
+  "PLP_R": {
+   "gaba": 14492,
+   "ach": 40070,
+   "glut": 9832,
+   "oct": 220,
+   "ser": 265,
+   "da": 740
+  },
+  "PVLP_L": {
+   "gaba": 16762,
+   "ach": 51533,
+   "glut": 12360,
+   "oct": 408,
+   "ser": 276,
+   "da": 967
+  },
+  "SCL_L": {
+   "gaba": 6336,
+   "ach": 21363,
+   "glut": 8646,
+   "oct": 104,
+   "ser": 430,
+   "da": 360
+  },
+  "SCL_R": {
+   "gaba": 8790,
+   "ach": 25998,
+   "glut": 8535,
+   "oct": 129,
+   "ser": 466,
+   "da": 436
+  },
+  "SLP_L": {
+   "gaba": 6517,
+   "ach": 24924,
+   "glut": 11450,
+   "oct": 66,
+   "ser": 699,
+   "da": 355
+  },
+  "SPS_L": {
+   "gaba": 10475,
+   "ach": 33246,
+   "glut": 13169,
+   "oct": 299,
+   "ser": 306,
+   "da": 429
+  },
+  "SPS_R": {
+   "gaba": 13218,
+   "ach": 40528,
+   "glut": 15133,
+   "oct": 327,
+   "ser": 296,
+   "da": 487
+  },
+  "UNASGD": {
+   "gaba": 131,
+   "ach": 330,
+   "glut": 73,
+   "oct": 21,
+   "ser": 62,
+   "da": 96
+  },
+  "VES_L": {
+   "gaba": 6955,
+   "ach": 15724,
+   "glut": 4103,
+   "oct": 232,
+   "ser": 173,
+   "da": 267
+  },
+  "VES_R": {
+   "gaba": 7160,
+   "ach": 16463,
+   "glut": 4814,
+   "oct": 260,
+   "ser": 225,
+   "da": 245
+  },
+  "WED_L": {
+   "gaba": 8156,
+   "ach": 16234,
+   "glut": 2561,
+   "oct": 132,
+   "ser": 122,
+   "da": 247
+  },
+  "WED_R": {
+   "gaba": 8659,
+   "ach": 18480,
+   "glut": 3755,
+   "oct": 236,
+   "ser": 159,
+   "da": 228
+  }
+ },
+ "elapsed_s": 51.58865284919739
+}

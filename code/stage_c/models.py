@@ -28,6 +28,28 @@ def build(run, a17, input_dim, n_classes, device):
         return SparseMLP(input_dim, hidden, n_classes, density=dens, seed=run["seed"] + 555).to(device)
     if arm in ("fly_m", "fly_ms_conditional", "ctrl_dp_shuffled", "fly_mod"):
         return FlyMLP(input_dim, hidden, n_classes, arm, run, a17).to(device)
+    if arm == "fly_m_c" or arm == "ctrl_rand_sparse_c":
+        # AMENDMENT-27 connectivity-repaired arms (see PREREG_A27.md)
+        base_arm = "fly_m" if arm == "fly_m_c" else "ctrl_rand_sparse"
+        if base_arm == "fly_m":
+            model = FlyMLP(input_dim, hidden, n_classes, "fly_m", run, a17)
+        else:
+            dkey = "d100" if input_dim == 100 else ("d3072" if input_dim == 3072 else "d784")
+            dens = a17["sparse_density_by_task"][dkey]
+            model = SparseMLP(input_dim, hidden, n_classes, density=dens, seed=run["seed"] + 777)
+        model.masks = repair_masks(model.masks, run["seed"])
+        if arm == "ctrl_rand_sparse_c":
+            fly_peer = FlyMLP(input_dim, hidden, n_classes, "fly_m", run, a17)
+            fly_peer.masks = repair_masks(fly_peer.masks, run["seed"])
+            model.masks = match_edge_count(model.masks, fly_peer.masks)
+        with torch.no_grad():
+            torch.manual_seed(run["seed"])
+            for lin, m in zip(model.layers, model.masks):
+                # fresh nn.Linear-default init, then apply the repaired mask once, so
+                # repair/top-up edges start at random init like every other unmasked weight
+                nn.init.kaiming_uniform_(lin.weight, a=5 ** 0.5)
+                lin.weight *= m
+        return model.to(device)
     raise ValueError(arm)
 
 class DenseMLP:
@@ -100,6 +122,38 @@ class FlyMLP(nn.Module):
             x = nn.functional.linear(x, lin.weight * m, lin.bias)
             if i < len(self.layers) - 1: x = torch.relu(x)
         return x
+
+def repair_masks(masks, seed):
+    """AMENDMENT-27 minimal connectivity repair (FROZEN rule): for every layer, each
+    zero-fan-in row gains exactly 2 distinct uniform incoming edges (seeded per layer).
+    Guarantees zero dead rows and full input->output reachability. Returns new masks."""
+    rng = np.random.default_rng(seed)
+    out = []
+    for li, m in enumerate(masks):
+        m = m.clone()
+        dead = (m.sum(1) == 0).nonzero().flatten().tolist()
+        for r in dead:
+            cols = rng.choice(m.shape[1], size=min(2, m.shape[1]), replace=False)
+            m[r, torch.tensor(cols)] = 1.0
+        out.append(m)
+    return out
+
+def match_edge_count(masks_add, masks_target):
+    """A27: top up masks_add with uniform non-repair edges until total count equals
+    masks_target's (exact density match; control stays purely random). Seeded."""
+    rng = np.random.default_rng(987)
+    add = [m.clone() for m in masks_add]
+    deficit = int(sum(m.sum() for m in masks_target) - sum(m.sum() for m in add))
+    li = 0
+    while deficit > 0:
+        m = add[li % len(add)]
+        zeros = (m == 0).nonzero()
+        if len(zeros) == 0: li += 1; continue
+        pick = zeros[rng.integers(0, len(zeros))]
+        if m[pick[0], pick[1]] == 0:
+            m[pick[0], pick[1]] = 1.0; deficit -= 1
+        li += 1
+    return add
 
 def load_fly_masks(spec, dims, seed, a17):
     """Project the exported fly adjacency onto per-layer masks per the A17 spec.

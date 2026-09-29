@@ -8,6 +8,7 @@ import json, os, sys, time
 def main():
     start, end, out_dir = int(sys.argv[1]), int(sys.argv[2]), sys.argv[3]
     data_root = sys.argv[4] if len(sys.argv) > 4 else os.path.join(out_dir, "_data")
+    manifest_path = sys.argv[5] if len(sys.argv) > 5 else None
     here = os.path.dirname(__file__)
     a17_path = os.path.join(here, "A17_FROZEN.json")
     if not os.path.exists(a17_path):
@@ -19,7 +20,7 @@ def main():
     import models as M
     import torch, torch.nn as nn
     torch.set_num_threads(int(os.environ.get("OMP_NUM_THREADS", "2")))
-    manifest = json.load(open(os.path.join(here, "..", "..", "results", "stage_c", "grid_manifest.json")))
+    manifest = json.load(open(manifest_path or os.path.join(here, "..", "..", "results", "stage_c", "grid_manifest.json")))
     runs = manifest["runs"][start:end]
     os.makedirs(out_dir, exist_ok=True)
     device = "cuda" if torch.cuda.is_available() else "cpu"

@@ -69,6 +69,8 @@ def main():
         ab = None
         if run.get("ablation") and hasattr(model, "masks"):
             ab = M.ablation_eval(model, dl_te, [0.0, 0.1, 0.2, 0.3, 0.4, 0.5], run["seed"], device, is_reg)
+        elif run.get("ablation") and not hasattr(model, "masks"):
+            ab = M.ablation_eval_generic(model, dl_te, [0.0, 0.1, 0.2, 0.3, 0.4, 0.5], run["seed"], device, is_reg)
         flops = flop_count(model, d, run["task"])
         flops_eff = None
         if eff is not None and hasattr(model, "masks"):

@@ -1,0 +1,327 @@
+{
+ "primary": {
+  "T1_mnist_noise|s0.0": {
+   "H30a_fly_dwft_vs_rand_dwft": {
+    "a_mean": 0.5019,
+    "b_mean": 0.5742,
+    "wins_a": 5,
+    "p": 0.05316925048828125,
+    "p_holm": 0.1063385009765625
+   },
+   "H30b_hyb_half_vs_prune_mag_lw": {
+    "a_mean": 0.7576,
+    "b_mean": 0.7583,
+    "wins_a": 8,
+    "p": 0.956329345703125,
+    "p_holm": 0.956329345703125
+   },
+   "H30c_fly_dwft_vs_prune_mag_lw": {
+    "a_mean": 0.5019,
+    "b_mean": 0.7583,
+    "wins_a": 0,
+    "p": 1.9073486328125e-06,
+    "p_holm": 5.7220458984375e-06
+   }
+  },
+  "T1_mnist_noise|s1.0": {
+   "H30a_fly_dwft_vs_rand_dwft": {
+    "a_mean": 0.2556,
+    "b_mean": 0.3207,
+    "wins_a": 1,
+    "p": 1.9073486328125e-05,
+    "p_holm": 3.814697265625e-05
+   },
+   "H30b_hyb_half_vs_prune_mag_lw": {
+    "a_mean": 0.4583,
+    "b_mean": 0.4718,
+    "wins_a": 11,
+    "p": 0.8408222198486328,
+    "p_holm": 0.8408222198486328
+   },
+   "H30c_fly_dwft_vs_prune_mag_lw": {
+    "a_mean": 0.2556,
+    "b_mean": 0.4718,
+    "wins_a": 0,
+    "p": 1.9073486328125e-06,
+    "p_holm": 5.7220458984375e-06
+   }
+  },
+  "T2_fashion|s0.0": {
+   "H30a_fly_dwft_vs_rand_dwft": {
+    "a_mean": 0.5912,
+    "b_mean": 0.6242,
+    "wins_a": 10,
+    "p": 0.5458755493164062,
+    "p_holm": 1.0
+   },
+   "H30b_hyb_half_vs_prune_mag_lw": {
+    "a_mean": 0.6704,
+    "b_mean": 0.5991,
+    "wins_a": 14,
+    "p": 0.01531219482421875,
+    "p_holm": 0.04593658447265625
+   },
+   "H30c_fly_dwft_vs_prune_mag_lw": {
+    "a_mean": 0.5912,
+    "b_mean": 0.5991,
+    "wins_a": 9,
+    "p": 0.7561664581298828,
+    "p_holm": 1.0
+   }
+  },
+  "T4_permuted_mnist|s0.0": {
+   "H30a_fly_dwft_vs_rand_dwft": {
+    "a_mean": 0.5344,
+    "b_mean": 0.5684,
+    "wins_a": 9,
+    "p": 0.2942523956298828,
+    "p_holm": 0.2942523956298828
+   },
+   "H30b_hyb_half_vs_prune_mag_lw": {
+    "a_mean": 0.7426,
+    "b_mean": 0.8167,
+    "wins_a": 7,
+    "p": 0.03276824951171875,
+    "p_holm": 0.0655364990234375
+   },
+   "H30c_fly_dwft_vs_prune_mag_lw": {
+    "a_mean": 0.5344,
+    "b_mean": 0.8167,
+    "wins_a": 0,
+    "p": 1.9073486328125e-06,
+    "p_holm": 5.7220458984375e-06
+   }
+  },
+  "T5_cifar10_subset|s0.0": {
+   "H30a_fly_dwft_vs_rand_dwft": {
+    "a_mean": 0.2742,
+    "b_mean": 0.2865,
+    "wins_a": 8,
+    "p": 0.5565794125211807,
+    "p_holm": 0.5565794125211807
+   },
+   "H30b_hyb_half_vs_prune_mag_lw": {
+    "a_mean": 0.4471,
+    "b_mean": 0.5167,
+    "wins_a": 3,
+    "p": 4.76837158203125e-05,
+    "p_holm": 9.5367431640625e-05
+   },
+   "H30c_fly_dwft_vs_prune_mag_lw": {
+    "a_mean": 0.2742,
+    "b_mean": 0.5167,
+    "wins_a": 0,
+    "p": 1.9073486328125e-06,
+    "p_holm": 5.7220458984375e-06
+   }
+  }
+ },
+ "means": {
+  "T1_mnist_noise|s0.0": {
+   "fly_dwft": 0.5019,
+   "hyb_half": 0.7576,
+   "rand_dwft": 0.5742,
+   "prune_mag_lw": 0.7583,
+   "fly_m_c": 0.3676
+  },
+  "T1_mnist_noise|s1.0": {
+   "fly_dwft": 0.2556,
+   "hyb_half": 0.4583,
+   "rand_dwft": 0.3207,
+   "prune_mag_lw": 0.4718,
+   "fly_m_c": 0.2054
+  },
+  "T2_fashion|s0.0": {
+   "fly_dwft": 0.5912,
+   "hyb_half": 0.6704,
+   "rand_dwft": 0.6242,
+   "prune_mag_lw": 0.5991,
+   "fly_m_c": 0.4085
+  },
+  "T4_permuted_mnist|s0.0": {
+   "fly_dwft": 0.5344,
+   "hyb_half": 0.7426,
+   "rand_dwft": 0.5684,
+   "prune_mag_lw": 0.8167,
+   "fly_m_c": 0.4073
+  },
+  "T5_cifar10_subset|s0.0": {
+   "fly_dwft": 0.2742,
+   "hyb_half": 0.4471,
+   "rand_dwft": 0.2865,
+   "prune_mag_lw": 0.5167,
+   "fly_m_c": 0.3257
+  }
+ },
+ "robustness": {
+  "T1_mnist_noise": {
+   "auc_x2": {
+    "fly_dwft": 0.4679,
+    "hyb_half": 0.3892,
+    "rand_dwft": 0.4675,
+    "prune_mag_lw": 0.4232,
+    "fly_m_c": 0.5699
+   },
+   "ret40": {
+    "fly_dwft": 0.2859,
+    "hyb_half": 0.2113,
+    "rand_dwft": 0.2786,
+    "prune_mag_lw": 0.2278,
+    "fly_m_c": 0.4623
+   },
+   "abs_acc0": {
+    "fly_dwft": 0.5019,
+    "hyb_half": 0.7576,
+    "rand_dwft": 0.5742,
+    "prune_mag_lw": 0.7583,
+    "fly_m_c": 0.3676
+   },
+   "abs_acc40": {
+    "fly_dwft": 0.1395,
+    "hyb_half": 0.1571,
+    "rand_dwft": 0.1521,
+    "prune_mag_lw": 0.1699,
+    "fly_m_c": 0.1567
+   },
+   "vs_prune_mag_lw": {
+    "fly_dwft": {
+     "wins": 14,
+     "p": 0.082550048828125
+    },
+    "hyb_half": {
+     "wins": 6,
+     "p": 0.0758514404296875
+    },
+    "rand_dwft": {
+     "wins": 11,
+     "p": 0.34881019592285156
+    }
+   }
+  },
+  "T4_permuted_mnist": {
+   "auc_x2": {
+    "fly_dwft": 0.4923,
+    "hyb_half": 0.3976,
+    "rand_dwft": 0.444,
+    "prune_mag_lw": 0.4123,
+    "fly_m_c": 0.5535
+   },
+   "ret40": {
+    "fly_dwft": 0.2869,
+    "hyb_half": 0.2079,
+    "rand_dwft": 0.2567,
+    "prune_mag_lw": 0.2156,
+    "fly_m_c": 0.388
+   },
+   "abs_acc0": {
+    "fly_dwft": 0.5344,
+    "hyb_half": 0.7426,
+    "rand_dwft": 0.5684,
+    "prune_mag_lw": 0.8167,
+    "fly_m_c": 0.4073
+   },
+   "abs_acc40": {
+    "fly_dwft": 0.1477,
+    "hyb_half": 0.1509,
+    "rand_dwft": 0.1491,
+    "prune_mag_lw": 0.1748,
+    "fly_m_c": 0.1478
+   },
+   "vs_prune_mag_lw": {
+    "fly_dwft": {
+     "wins": 17,
+     "p": 0.0014324188232421875
+    },
+    "hyb_half": {
+     "wins": 8,
+     "p": 0.38837623596191406
+    },
+    "rand_dwft": {
+     "wins": 15,
+     "p": 0.06372261047363281
+    }
+   }
+  }
+ },
+ "layer_nnz_sample": {
+  "fly_dwft": {
+   "T1_mnist_noise": [
+    3417,
+    878,
+    421,
+    16
+   ],
+   "T2_fashion": [
+    3417,
+    878,
+    421,
+    16
+   ],
+   "T4_permuted_mnist": [
+    3397,
+    872,
+    416,
+    17
+   ],
+   "T5_cifar10_subset": [
+    4914,
+    486,
+    234,
+    10
+   ]
+  },
+  "hyb_half": {
+   "T1_mnist_noise": [
+    3397,
+    872,
+    416,
+    17
+   ],
+   "T2_fashion": [
+    3417,
+    878,
+    421,
+    16
+   ],
+   "T4_permuted_mnist": [
+    3417,
+    878,
+    421,
+    16
+   ],
+   "T5_cifar10_subset": [
+    4940,
+    488,
+    239,
+    9
+   ]
+  },
+  "rand_dwft": {
+   "T1_mnist_noise": [
+    3417,
+    878,
+    421,
+    16
+   ],
+   "T2_fashion": [
+    3397,
+    872,
+    416,
+    17
+   ],
+   "T4_permuted_mnist": [
+    3397,
+    872,
+    416,
+    17
+   ],
+   "T5_cifar10_subset": [
+    4914,
+    486,
+    234,
+    10
+   ]
+  }
+ },
+ "chance_flags": {}
+}

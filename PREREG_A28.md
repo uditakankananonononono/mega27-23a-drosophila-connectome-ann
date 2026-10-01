@@ -10,7 +10,7 @@ generic property of sparse / low-accuracy models? Dense and CNN were never ablat
 ## Design (frozen before any run)
 - New arms ablated: base_dense, small_cnn, base_sparse (clean training, sigma 0).
 - Tasks: T1_mnist_noise, T4_permuted_mnist (the two G2 tasks), 20 seeds each, seeds
-  identical per seed_idx to the G2 fly_m_c / ctrl_rand_sparse_c runs (paired by seed_idx).
+  = each arm's own main-grid seeds per seed_idx (same convention as G2); pairing by seed_idx.
 - Protocol: same as G2. Random hidden-unit ablation, fractions {0,.1,.2,.3,.4,.5}, applied
   after training, seeded per run. Unit = hidden neuron (MLPs) or conv channel (small_cnn).
   Same keep-vector generator recipe as ablation_eval (models.ablation_eval_generic).

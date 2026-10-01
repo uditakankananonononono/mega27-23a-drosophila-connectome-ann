@@ -14,6 +14,8 @@ def build(run, a17, input_dim, n_classes, device):
     arm = run["arm"]
     torch.manual_seed(run["seed"])
     hidden = a17["hidden_sizes"]          # locked in A17 (same for all MLP arms)
+    if arm in ("prune_mag_gl", "prune_mag_lw"):
+        return PrunableMLP(input_dim, hidden, n_classes)
     if arm == "small_cnn":
         return SmallCNN(input_dim, n_classes, a17).to(device)
     if arm == "base_dense":
@@ -272,3 +274,41 @@ class SmallCNN(nn.Module):
         self.head = nn.Linear(ch[1] * (side // 4) ** 2, c)
     def forward(self, x):
         return self.head(self.features(x).flatten(1))
+
+
+class PrunableMLP(nn.Module):
+    """A29: dense MLP (same hidden sizes as every MLP arm) that exposes .layers/.masks so the
+    G2 ablation path applies. Masks start all-ones; prune_model() sets them after phase-1 training."""
+    def __init__(self, d, hidden, c):
+        super().__init__()
+        self.layers = nn.ModuleList(); self.masks = []
+        prev = d
+        for h in list(hidden) + [c]:
+            self.layers.append(nn.Linear(prev, h)); self.masks.append(torch.ones(h, prev)); prev = h
+    def forward(self, x):
+        x = x.reshape(x.shape[0], -1)
+        for i, (lin, m) in enumerate(zip(self.layers, self.masks)):
+            x = nn.functional.linear(x, lin.weight * m.to(x.device), lin.bias)
+            if i < len(self.layers) - 1: x = torch.relu(x)
+        return x
+
+def prune_model(model, target_nnz, mode):
+    """A29 magnitude pruning to EXACTLY sum(target_nnz) kept weights (target = fly_m_c layer counts).
+    mode 'lw': keep top-|w| nnz_l per layer. mode 'gl': keep global top-|w|/mean|w_layer| over all layers, same total.
+    Ties broken by flat index (stable). Biases untouched."""
+    ws = [l.weight.detach().abs().cpu() for l in model.layers]
+    if mode == "lw":
+        masks = []
+        for w, k in zip(ws, target_nnz):
+            flat = w.flatten(); idx = torch.argsort(flat, descending=True, stable=True)[:k]
+            m = torch.zeros_like(flat); m[idx] = 1.0; masks.append(m.view_as(w))
+    else:
+        flat = torch.cat([(w / w.mean().clamp_min(1e-12)).flatten() for w in ws]); k = int(sum(target_nnz))  # layer-mean-normalised global magnitude (avoids input-layer starvation by init scale)
+        idx = torch.argsort(flat, descending=True, stable=True)[:k]
+        m = torch.zeros_like(flat); m[idx] = 1.0
+        masks, off = [], 0
+        for w in ws:
+            masks.append(m[off:off + w.numel()].view_as(w)); off += w.numel()
+    model.masks = masks
+    with torch.no_grad():
+        for l, m in zip(model.layers, masks): l.weight *= m.to(l.weight.device)

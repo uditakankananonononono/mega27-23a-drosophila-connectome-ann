@@ -49,7 +49,16 @@ def main():
         is_reg = run["task"] == "T3_adding"
         lossf = nn.MSELoss() if is_reg else nn.CrossEntropyLoss()
         hist = []
-        for ep in range(a17["epoch_budget"][run["task"]]):
+        E = a17["epoch_budget"][run["task"]]
+        is_prune = run["arm"].startswith("prune_mag")
+        if is_prune:  # A29: train dense E epochs -> prune to fly_m_c layer budget -> fine-tune E epochs
+            _fly = M.build({"arm": "fly_m_c", "seed": run["seed"], "run_id": "x", "task": run["task"]}, a17, d, c, "cpu")
+            tgt = [int(m.sum()) for m in _fly.masks]
+        for ep in range(2 * E if is_prune else E):
+            if is_prune and ep == E:
+                M.prune_model(model, tgt, run["arm"][-2:])
+                eff = int(sum(int((m > 0).sum()) for m in model.masks))
+                opt = torch.optim.Adam(model.parameters(), lr=1e-3)
             model.train()
             for x, y in dl:
                 x = x.to(device); y = y.to(device)
@@ -64,7 +73,7 @@ def main():
                     if is_reg: mse += float(((out.squeeze() - y.squeeze()) ** 2).sum())
                     else:
                         correct += int((out.argmax(1) == y).sum()); tot += len(y)
-            hist.append({"epoch": ep, "val_mse" if is_reg else "val_acc":
+            hist.append({"epoch": ep, **({"phase": "dense" if ep < E else "finetune"} if is_prune else {}), "val_mse" if is_reg else "val_acc":
                          (mse / len(te)) if is_reg else (correct / tot)})
         ab = None
         if run.get("ablation") and hasattr(model, "masks"):
@@ -77,7 +86,7 @@ def main():
             flops_eff = 2 * eff
         res = {"run_id": run["run_id"], "arm": run["arm"], "task": run["task"],
                "sigma": run["sigma"], "seed": run["seed"], "n_params": n_params,
-               "n_params_effective": eff, "flops": flops, "flops_effective": flops_eff,
+               "n_params_effective": eff, "layer_nnz": ([int((m > 0).sum()) for m in model.masks] if hasattr(model, "masks") else None), "flops": flops, "flops_effective": flops_eff,
                "epochs": hist, "final": hist[-1], "ablation": ab,
                "env": {"torch": torch.__version__, "numpy": __import__("numpy").__version__},
                "elapsed_s": time.time() - t0}

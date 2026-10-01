@@ -1,0 +1,1088 @@
+{
+ "master_seed": 27000027,
+ "amendment": "A28/G4",
+ "n_runs": 120,
+ "note": "G4 ablation of dense/cnn/base_sparse references; each arm reuses its own main-grid seeds per seed_idx (as G2 did for fly_m_c/ctrl); pairing is by seed_idx",
+ "runs": [
+  {
+   "run_id": "base_dense|T1_mnist_noise|abl|s0.0|k00",
+   "arm": "base_dense",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 0,
+   "seed": 3030029259,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T1_mnist_noise|abl|s0.0|k01",
+   "arm": "base_dense",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 1,
+   "seed": 1918850884,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T1_mnist_noise|abl|s0.0|k02",
+   "arm": "base_dense",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 2,
+   "seed": 118709103,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T1_mnist_noise|abl|s0.0|k03",
+   "arm": "base_dense",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 3,
+   "seed": 3801475385,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T1_mnist_noise|abl|s0.0|k04",
+   "arm": "base_dense",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 4,
+   "seed": 2278951760,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T1_mnist_noise|abl|s0.0|k05",
+   "arm": "base_dense",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 5,
+   "seed": 3292152665,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T1_mnist_noise|abl|s0.0|k06",
+   "arm": "base_dense",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 6,
+   "seed": 372842903,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T1_mnist_noise|abl|s0.0|k07",
+   "arm": "base_dense",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 7,
+   "seed": 609948481,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T1_mnist_noise|abl|s0.0|k08",
+   "arm": "base_dense",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 8,
+   "seed": 1805306823,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T1_mnist_noise|abl|s0.0|k09",
+   "arm": "base_dense",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 9,
+   "seed": 2170042454,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T1_mnist_noise|abl|s0.0|k10",
+   "arm": "base_dense",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 10,
+   "seed": 70964296,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T1_mnist_noise|abl|s0.0|k11",
+   "arm": "base_dense",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 11,
+   "seed": 4080107078,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T1_mnist_noise|abl|s0.0|k12",
+   "arm": "base_dense",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 12,
+   "seed": 1607496675,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T1_mnist_noise|abl|s0.0|k13",
+   "arm": "base_dense",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 13,
+   "seed": 1666340963,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T1_mnist_noise|abl|s0.0|k14",
+   "arm": "base_dense",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 14,
+   "seed": 3850650875,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T1_mnist_noise|abl|s0.0|k15",
+   "arm": "base_dense",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 15,
+   "seed": 420432414,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T1_mnist_noise|abl|s0.0|k16",
+   "arm": "base_dense",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 16,
+   "seed": 786845013,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T1_mnist_noise|abl|s0.0|k17",
+   "arm": "base_dense",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 17,
+   "seed": 632860490,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T1_mnist_noise|abl|s0.0|k18",
+   "arm": "base_dense",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 18,
+   "seed": 2638803732,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T1_mnist_noise|abl|s0.0|k19",
+   "arm": "base_dense",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 19,
+   "seed": 434732401,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T4_permuted_mnist|abl|s0.0|k00",
+   "arm": "base_dense",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 0,
+   "seed": 2530313417,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T4_permuted_mnist|abl|s0.0|k01",
+   "arm": "base_dense",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 1,
+   "seed": 2022720182,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T4_permuted_mnist|abl|s0.0|k02",
+   "arm": "base_dense",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 2,
+   "seed": 1975189529,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T4_permuted_mnist|abl|s0.0|k03",
+   "arm": "base_dense",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 3,
+   "seed": 3617884857,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T4_permuted_mnist|abl|s0.0|k04",
+   "arm": "base_dense",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 4,
+   "seed": 1808148415,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T4_permuted_mnist|abl|s0.0|k05",
+   "arm": "base_dense",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 5,
+   "seed": 1877333145,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T4_permuted_mnist|abl|s0.0|k06",
+   "arm": "base_dense",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 6,
+   "seed": 3162075117,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T4_permuted_mnist|abl|s0.0|k07",
+   "arm": "base_dense",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 7,
+   "seed": 3909547258,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T4_permuted_mnist|abl|s0.0|k08",
+   "arm": "base_dense",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 8,
+   "seed": 1991312181,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T4_permuted_mnist|abl|s0.0|k09",
+   "arm": "base_dense",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 9,
+   "seed": 2825992082,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T4_permuted_mnist|abl|s0.0|k10",
+   "arm": "base_dense",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 10,
+   "seed": 2751067392,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T4_permuted_mnist|abl|s0.0|k11",
+   "arm": "base_dense",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 11,
+   "seed": 1017703929,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T4_permuted_mnist|abl|s0.0|k12",
+   "arm": "base_dense",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 12,
+   "seed": 801869357,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T4_permuted_mnist|abl|s0.0|k13",
+   "arm": "base_dense",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 13,
+   "seed": 1228956286,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T4_permuted_mnist|abl|s0.0|k14",
+   "arm": "base_dense",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 14,
+   "seed": 460603468,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T4_permuted_mnist|abl|s0.0|k15",
+   "arm": "base_dense",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 15,
+   "seed": 4188409671,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T4_permuted_mnist|abl|s0.0|k16",
+   "arm": "base_dense",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 16,
+   "seed": 3929512641,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T4_permuted_mnist|abl|s0.0|k17",
+   "arm": "base_dense",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 17,
+   "seed": 1223041859,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T4_permuted_mnist|abl|s0.0|k18",
+   "arm": "base_dense",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 18,
+   "seed": 2048286013,
+   "ablation": true
+  },
+  {
+   "run_id": "base_dense|T4_permuted_mnist|abl|s0.0|k19",
+   "arm": "base_dense",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 19,
+   "seed": 3500041641,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T1_mnist_noise|abl|s0.0|k00",
+   "arm": "base_sparse",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 0,
+   "seed": 1081655222,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T1_mnist_noise|abl|s0.0|k01",
+   "arm": "base_sparse",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 1,
+   "seed": 1075135471,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T1_mnist_noise|abl|s0.0|k02",
+   "arm": "base_sparse",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 2,
+   "seed": 754103643,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T1_mnist_noise|abl|s0.0|k03",
+   "arm": "base_sparse",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 3,
+   "seed": 2291133691,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T1_mnist_noise|abl|s0.0|k04",
+   "arm": "base_sparse",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 4,
+   "seed": 1235082676,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T1_mnist_noise|abl|s0.0|k05",
+   "arm": "base_sparse",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 5,
+   "seed": 3122401027,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T1_mnist_noise|abl|s0.0|k06",
+   "arm": "base_sparse",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 6,
+   "seed": 330899599,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T1_mnist_noise|abl|s0.0|k07",
+   "arm": "base_sparse",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 7,
+   "seed": 2118709167,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T1_mnist_noise|abl|s0.0|k08",
+   "arm": "base_sparse",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 8,
+   "seed": 394551628,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T1_mnist_noise|abl|s0.0|k09",
+   "arm": "base_sparse",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 9,
+   "seed": 3277895319,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T1_mnist_noise|abl|s0.0|k10",
+   "arm": "base_sparse",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 10,
+   "seed": 1306449019,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T1_mnist_noise|abl|s0.0|k11",
+   "arm": "base_sparse",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 11,
+   "seed": 726489548,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T1_mnist_noise|abl|s0.0|k12",
+   "arm": "base_sparse",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 12,
+   "seed": 1431380817,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T1_mnist_noise|abl|s0.0|k13",
+   "arm": "base_sparse",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 13,
+   "seed": 4034201004,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T1_mnist_noise|abl|s0.0|k14",
+   "arm": "base_sparse",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 14,
+   "seed": 990649735,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T1_mnist_noise|abl|s0.0|k15",
+   "arm": "base_sparse",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 15,
+   "seed": 711868516,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T1_mnist_noise|abl|s0.0|k16",
+   "arm": "base_sparse",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 16,
+   "seed": 927515617,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T1_mnist_noise|abl|s0.0|k17",
+   "arm": "base_sparse",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 17,
+   "seed": 4106658959,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T1_mnist_noise|abl|s0.0|k18",
+   "arm": "base_sparse",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 18,
+   "seed": 3316659572,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T1_mnist_noise|abl|s0.0|k19",
+   "arm": "base_sparse",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 19,
+   "seed": 1006535073,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T4_permuted_mnist|abl|s0.0|k00",
+   "arm": "base_sparse",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 0,
+   "seed": 2620110630,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T4_permuted_mnist|abl|s0.0|k01",
+   "arm": "base_sparse",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 1,
+   "seed": 879605199,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T4_permuted_mnist|abl|s0.0|k02",
+   "arm": "base_sparse",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 2,
+   "seed": 3721412257,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T4_permuted_mnist|abl|s0.0|k03",
+   "arm": "base_sparse",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 3,
+   "seed": 1003795730,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T4_permuted_mnist|abl|s0.0|k04",
+   "arm": "base_sparse",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 4,
+   "seed": 3533395436,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T4_permuted_mnist|abl|s0.0|k05",
+   "arm": "base_sparse",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 5,
+   "seed": 489032936,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T4_permuted_mnist|abl|s0.0|k06",
+   "arm": "base_sparse",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 6,
+   "seed": 2412010189,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T4_permuted_mnist|abl|s0.0|k07",
+   "arm": "base_sparse",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 7,
+   "seed": 522858998,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T4_permuted_mnist|abl|s0.0|k08",
+   "arm": "base_sparse",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 8,
+   "seed": 2442782318,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T4_permuted_mnist|abl|s0.0|k09",
+   "arm": "base_sparse",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 9,
+   "seed": 2124175280,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T4_permuted_mnist|abl|s0.0|k10",
+   "arm": "base_sparse",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 10,
+   "seed": 1171669580,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T4_permuted_mnist|abl|s0.0|k11",
+   "arm": "base_sparse",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 11,
+   "seed": 1998993501,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T4_permuted_mnist|abl|s0.0|k12",
+   "arm": "base_sparse",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 12,
+   "seed": 833722663,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T4_permuted_mnist|abl|s0.0|k13",
+   "arm": "base_sparse",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 13,
+   "seed": 3763424377,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T4_permuted_mnist|abl|s0.0|k14",
+   "arm": "base_sparse",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 14,
+   "seed": 2472258043,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T4_permuted_mnist|abl|s0.0|k15",
+   "arm": "base_sparse",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 15,
+   "seed": 1265061885,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T4_permuted_mnist|abl|s0.0|k16",
+   "arm": "base_sparse",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 16,
+   "seed": 1290952059,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T4_permuted_mnist|abl|s0.0|k17",
+   "arm": "base_sparse",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 17,
+   "seed": 1923933596,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T4_permuted_mnist|abl|s0.0|k18",
+   "arm": "base_sparse",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 18,
+   "seed": 3928101215,
+   "ablation": true
+  },
+  {
+   "run_id": "base_sparse|T4_permuted_mnist|abl|s0.0|k19",
+   "arm": "base_sparse",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 19,
+   "seed": 1127640687,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T1_mnist_noise|abl|s0.0|k00",
+   "arm": "small_cnn",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 0,
+   "seed": 4175203540,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T1_mnist_noise|abl|s0.0|k01",
+   "arm": "small_cnn",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 1,
+   "seed": 1488117177,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T1_mnist_noise|abl|s0.0|k02",
+   "arm": "small_cnn",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 2,
+   "seed": 2507944548,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T1_mnist_noise|abl|s0.0|k03",
+   "arm": "small_cnn",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 3,
+   "seed": 1519877494,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T1_mnist_noise|abl|s0.0|k04",
+   "arm": "small_cnn",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 4,
+   "seed": 3683492537,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T1_mnist_noise|abl|s0.0|k05",
+   "arm": "small_cnn",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 5,
+   "seed": 296202958,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T1_mnist_noise|abl|s0.0|k06",
+   "arm": "small_cnn",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 6,
+   "seed": 514241631,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T1_mnist_noise|abl|s0.0|k07",
+   "arm": "small_cnn",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 7,
+   "seed": 1476590353,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T1_mnist_noise|abl|s0.0|k08",
+   "arm": "small_cnn",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 8,
+   "seed": 686875874,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T1_mnist_noise|abl|s0.0|k09",
+   "arm": "small_cnn",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 9,
+   "seed": 1150699690,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T1_mnist_noise|abl|s0.0|k10",
+   "arm": "small_cnn",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 10,
+   "seed": 2054385576,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T1_mnist_noise|abl|s0.0|k11",
+   "arm": "small_cnn",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 11,
+   "seed": 2289377536,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T1_mnist_noise|abl|s0.0|k12",
+   "arm": "small_cnn",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 12,
+   "seed": 2115316876,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T1_mnist_noise|abl|s0.0|k13",
+   "arm": "small_cnn",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 13,
+   "seed": 3448579830,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T1_mnist_noise|abl|s0.0|k14",
+   "arm": "small_cnn",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 14,
+   "seed": 66723942,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T1_mnist_noise|abl|s0.0|k15",
+   "arm": "small_cnn",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 15,
+   "seed": 2721668700,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T1_mnist_noise|abl|s0.0|k16",
+   "arm": "small_cnn",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 16,
+   "seed": 2719575236,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T1_mnist_noise|abl|s0.0|k17",
+   "arm": "small_cnn",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 17,
+   "seed": 1839096376,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T1_mnist_noise|abl|s0.0|k18",
+   "arm": "small_cnn",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 18,
+   "seed": 3943623447,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T1_mnist_noise|abl|s0.0|k19",
+   "arm": "small_cnn",
+   "task": "T1_mnist_noise",
+   "sigma": 0.0,
+   "seed_idx": 19,
+   "seed": 2128918281,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T4_permuted_mnist|abl|s0.0|k00",
+   "arm": "small_cnn",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 0,
+   "seed": 270415735,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T4_permuted_mnist|abl|s0.0|k01",
+   "arm": "small_cnn",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 1,
+   "seed": 1669248142,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T4_permuted_mnist|abl|s0.0|k02",
+   "arm": "small_cnn",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 2,
+   "seed": 1345473892,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T4_permuted_mnist|abl|s0.0|k03",
+   "arm": "small_cnn",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 3,
+   "seed": 684354973,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T4_permuted_mnist|abl|s0.0|k04",
+   "arm": "small_cnn",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 4,
+   "seed": 794674405,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T4_permuted_mnist|abl|s0.0|k05",
+   "arm": "small_cnn",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 5,
+   "seed": 841355668,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T4_permuted_mnist|abl|s0.0|k06",
+   "arm": "small_cnn",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 6,
+   "seed": 538448763,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T4_permuted_mnist|abl|s0.0|k07",
+   "arm": "small_cnn",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 7,
+   "seed": 2497693996,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T4_permuted_mnist|abl|s0.0|k08",
+   "arm": "small_cnn",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 8,
+   "seed": 1681676366,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T4_permuted_mnist|abl|s0.0|k09",
+   "arm": "small_cnn",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 9,
+   "seed": 112297795,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T4_permuted_mnist|abl|s0.0|k10",
+   "arm": "small_cnn",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 10,
+   "seed": 3280003684,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T4_permuted_mnist|abl|s0.0|k11",
+   "arm": "small_cnn",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 11,
+   "seed": 1074127730,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T4_permuted_mnist|abl|s0.0|k12",
+   "arm": "small_cnn",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 12,
+   "seed": 1261153278,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T4_permuted_mnist|abl|s0.0|k13",
+   "arm": "small_cnn",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 13,
+   "seed": 3077272127,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T4_permuted_mnist|abl|s0.0|k14",
+   "arm": "small_cnn",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 14,
+   "seed": 1580015078,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T4_permuted_mnist|abl|s0.0|k15",
+   "arm": "small_cnn",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 15,
+   "seed": 2431379216,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T4_permuted_mnist|abl|s0.0|k16",
+   "arm": "small_cnn",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 16,
+   "seed": 3088407873,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T4_permuted_mnist|abl|s0.0|k17",
+   "arm": "small_cnn",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 17,
+   "seed": 778737122,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T4_permuted_mnist|abl|s0.0|k18",
+   "arm": "small_cnn",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 18,
+   "seed": 1258671449,
+   "ablation": true
+  },
+  {
+   "run_id": "small_cnn|T4_permuted_mnist|abl|s0.0|k19",
+   "arm": "small_cnn",
+   "task": "T4_permuted_mnist",
+   "sigma": 0.0,
+   "seed_idx": 19,
+   "seed": 1283444064,
+   "ablation": true
+  }
+ ]
+}

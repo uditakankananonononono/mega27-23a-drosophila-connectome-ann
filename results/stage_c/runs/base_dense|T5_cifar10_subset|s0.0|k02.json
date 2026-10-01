@@ -1,0 +1,83 @@
+{
+ "run_id": "base_dense|T5_cifar10_subset|s0.0|k02",
+ "arm": "base_dense",
+ "task": "T5_cifar10_subset",
+ "sigma": 0.0,
+ "seed": 1781650330,
+ "n_params": 886021,
+ "n_params_effective": null,
+ "flops": 1770752,
+ "flops_effective": null,
+ "epochs": [
+  {
+   "epoch": 0,
+   "val_acc": 0.5078
+  },
+  {
+   "epoch": 1,
+   "val_acc": 0.5454
+  },
+  {
+   "epoch": 2,
+   "val_acc": 0.5764
+  },
+  {
+   "epoch": 3,
+   "val_acc": 0.5622
+  },
+  {
+   "epoch": 4,
+   "val_acc": 0.5984
+  },
+  {
+   "epoch": 5,
+   "val_acc": 0.6094
+  },
+  {
+   "epoch": 6,
+   "val_acc": 0.6076
+  },
+  {
+   "epoch": 7,
+   "val_acc": 0.619
+  },
+  {
+   "epoch": 8,
+   "val_acc": 0.6156
+  },
+  {
+   "epoch": 9,
+   "val_acc": 0.598
+  },
+  {
+   "epoch": 10,
+   "val_acc": 0.6086
+  },
+  {
+   "epoch": 11,
+   "val_acc": 0.6292
+  },
+  {
+   "epoch": 12,
+   "val_acc": 0.6316
+  },
+  {
+   "epoch": 13,
+   "val_acc": 0.628
+  },
+  {
+   "epoch": 14,
+   "val_acc": 0.6408
+  }
+ ],
+ "final": {
+  "epoch": 14,
+  "val_acc": 0.6408
+ },
+ "ablation": null,
+ "env": {
+  "torch": "2.5.1+cpu",
+  "numpy": "2.4.6"
+ },
+ "elapsed_s": 57.91160726547241
+}

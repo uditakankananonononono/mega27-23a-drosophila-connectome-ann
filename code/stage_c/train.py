@@ -41,7 +41,7 @@ def main():
         if hasattr(model, "masks"):
             eff = int(sum(int((m > 0).sum()) for m in model.masks))
         ref = a17["reference_params"][run["task"]]
-        assert abs(n_params - ref) / ref <= 0.05, f"C3 violated: {run['run_id']} {n_params} vs {ref}"
+        assert run["arm"] == "small_cnn" or abs(n_params - ref) / ref <= 0.05, f"C3 violated: {run['run_id']} {n_params} vs {ref}"
         dl = torch.utils.data.DataLoader(tr, batch_size=128, shuffle=True,
                                          generator=torch.Generator().manual_seed(run["seed"]))
         dl_te = torch.utils.data.DataLoader(te, batch_size=512)

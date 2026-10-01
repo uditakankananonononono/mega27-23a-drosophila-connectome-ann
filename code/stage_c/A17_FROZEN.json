@@ -73,7 +73,10 @@
   "fly_m_c",
   "ctrl_rand_sparse_c",
   "prune_mag_gl",
-  "prune_mag_lw"
+  "prune_mag_lw",
+  "fly_dwft",
+  "hyb_half",
+  "rand_dwft"
  ],
  "applicability": {
   "T3_adding": [

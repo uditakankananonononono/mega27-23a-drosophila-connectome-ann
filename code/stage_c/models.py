@@ -14,7 +14,7 @@ def build(run, a17, input_dim, n_classes, device):
     arm = run["arm"]
     torch.manual_seed(run["seed"])
     hidden = a17["hidden_sizes"]          # locked in A17 (same for all MLP arms)
-    if arm in ("prune_mag_gl", "prune_mag_lw"):
+    if arm in ("prune_mag_gl", "prune_mag_lw", "fly_dwft", "hyb_half", "rand_dwft"):
         return PrunableMLP(input_dim, hidden, n_classes)
     if arm == "small_cnn":
         return SmallCNN(input_dim, n_classes, a17).to(device)
@@ -309,6 +309,34 @@ def prune_model(model, target_nnz, mode):
         masks, off = [], 0
         for w in ws:
             masks.append(m[off:off + w.numel()].view_as(w)); off += w.numel()
+    model.masks = masks
+    with torch.no_grad():
+        for l, m in zip(model.layers, masks): l.weight *= m.to(l.weight.device)
+
+
+def struct_mask_model(model, fly_masks, mode, seed):
+    """A30: after dense phase-1 training, set masks with the SAME per-layer budget as fly_m_c.
+    fly: the fly_m_c masks themselves. rand: uniform random mask, same per-layer counts (seeded).
+    hyb: per layer, floor(k/2) fly edges with largest |w| + the remaining k - floor(k/2) non-fly
+    edges with largest |w| (if fewer non-fly... always enough at these sparsities)."""
+    rng = np.random.default_rng(seed + 4242)
+    masks = []
+    for l, fm in zip(model.layers, fly_masks):
+        w = l.weight.detach().abs().cpu(); k = int(fm.sum())
+        if mode == "fly":
+            m = fm.clone()
+        elif mode == "rand":
+            idx = rng.choice(w.numel(), size=k, replace=False)
+            m = torch.zeros(w.numel()); m[torch.tensor(idx)] = 1.0; m = m.view_as(w)
+        else:  # hyb
+            kf = k // 2
+            sf = torch.where(fm > 0, w, torch.full_like(w, -1.0)).flatten()
+            top_f = torch.argsort(sf, descending=True, stable=True)[:kf]
+            sn = torch.where(fm > 0, torch.full_like(w, -1.0), w).flatten()
+            top_n = torch.argsort(sn, descending=True, stable=True)[:k - kf]
+            m = torch.zeros(w.numel()); m[top_f] = 1.0; m[top_n] = 1.0; m = m.view_as(w)
+        assert int(m.sum()) == k
+        masks.append(m)
     model.masks = masks
     with torch.no_grad():
         for l, m in zip(model.layers, masks): l.weight *= m.to(l.weight.device)

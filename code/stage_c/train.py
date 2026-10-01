@@ -50,13 +50,16 @@ def main():
         lossf = nn.MSELoss() if is_reg else nn.CrossEntropyLoss()
         hist = []
         E = a17["epoch_budget"][run["task"]]
-        is_prune = run["arm"].startswith("prune_mag")
+        is_prune = run["arm"].startswith(("prune_mag", "fly_dwft", "hyb_half", "rand_dwft"))
         if is_prune:  # A29: train dense E epochs -> prune to fly_m_c layer budget -> fine-tune E epochs
             _fly = M.build({"arm": "fly_m_c", "seed": run["seed"], "run_id": "x", "task": run["task"]}, a17, d, c, "cpu")
             tgt = [int(m.sum()) for m in _fly.masks]
         for ep in range(2 * E if is_prune else E):
             if is_prune and ep == E:
-                M.prune_model(model, tgt, run["arm"][-2:])
+                if run["arm"].startswith("prune_mag"):
+                    M.prune_model(model, tgt, run["arm"][-2:])
+                else:
+                    M.struct_mask_model(model, _fly.masks, {"fly_dwft": "fly", "hyb_half": "hyb", "rand_dwft": "rand"}[run["arm"]], run["seed"])
                 eff = int(sum(int((m > 0).sum()) for m in model.masks))
                 opt = torch.optim.Adam(model.parameters(), lr=1e-3)
             model.train()

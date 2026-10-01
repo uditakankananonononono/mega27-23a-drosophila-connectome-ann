@@ -71,7 +71,9 @@
   "small_cnn",
   "fly_mod",
   "fly_m_c",
-  "ctrl_rand_sparse_c"
+  "ctrl_rand_sparse_c",
+  "prune_mag_gl",
+  "prune_mag_lw"
  ],
  "applicability": {
   "T3_adding": [

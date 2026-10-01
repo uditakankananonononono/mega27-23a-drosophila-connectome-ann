@@ -35,3 +35,8 @@ is run on T1 sigma 0 and T4 for the pruned arms (80 runs carry ablation).
 - Ties (Holm p >= 0.05) are reported as ties; a loss is reported as a loss. A prune arm
   that collapses (zero-layer) is reported as collapsed with its layer_nnz, not dropped.
 - Descriptive: efficiency table of accuracy vs effective params and effective FLOPs.
+
+## Implementation note (added 2026-10-01 before any A29 result exists)
+First dispatch (run #12) produced zero results: the trainer skips arms absent from A17_FROZEN
+arms_active, so the two A29 arms were skipped silently and the commit step failed on no files.
+Fix: prune_mag_gl and prune_mag_lw appended to arms_active (A29 amendment). No other A17 field changed.

@@ -1,1 +1,1 @@
-results/stage_c/grid_manifest_g2.json
+results/stage_c/grid_manifest.json

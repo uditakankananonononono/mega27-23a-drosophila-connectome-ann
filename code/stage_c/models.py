@@ -185,6 +185,39 @@ def ablation_eval(model, dl, fractions, seed, device, is_reg):
         out[str(frac)] = (mse / tot) if is_reg else (correct / tot)
     return out
 
+def ablation_eval_generic(model, dl, fractions, seed, device, is_reg):
+    """A28/G4: same random hidden-unit ablation protocol as ablation_eval, for models
+    WITHOUT masks (DenseMLP, SmallCNN). Unit = hidden neuron (MLP) or conv channel (CNN):
+    after each hidden ReLU, a seeded keep-vector (same generator recipe as ablation_eval)
+    zeroes that fraction of units. Implemented with forward hooks on the hidden ReLUs."""
+    relus = [m for m in model.modules() if isinstance(m, torch.nn.ReLU)]
+    sizes = []
+    lins = [m for m in model.modules() if isinstance(m, (torch.nn.Linear, torch.nn.Conv2d))]
+    for m in lins[:len(relus)]:
+        sizes.append(m.out_features if isinstance(m, torch.nn.Linear) else m.out_channels)
+    out = {}
+    for frac in fractions:
+        g = torch.Generator().manual_seed(seed + int(frac * 1000))
+        keeps = [(torch.rand(h, generator=g) >= frac).float().to(device) for h in sizes]
+        hooks = []
+        for r, k in zip(relus, keeps):
+            def hook(mod, inp, outp, k=k):
+                shape = [1, -1] + [1] * (outp.dim() - 2)
+                return outp * k.view(*shape)
+            hooks.append(r.register_forward_hook(hook))
+        correct = tot = 0; mse = 0.0
+        model.eval()
+        with torch.no_grad():
+            for x, y in dl:
+                x = x.to(device); y = y.to(device)
+                o = model(x)
+                if is_reg: mse += float(((o.squeeze() - y.squeeze()) ** 2).sum()); tot += len(y)
+                else:
+                    correct += int((o.argmax(1) == y).sum()); tot += len(y)
+        for h in hooks: h.remove()
+        out[str(frac)] = (mse / tot) if is_reg else (correct / tot)
+    return out
+
 def load_fly_masks(spec, dims, seed, a17):
     """Project the exported fly adjacency onto per-layer masks per the A17 spec.
     Implementation of the FROZEN mapping rule; the rule text lives in A17.

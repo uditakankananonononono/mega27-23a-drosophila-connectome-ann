@@ -1,0 +1,180 @@
+{
+ "run_id": "prune_mag_lw|T1_mnist_noise|s1.0|k12",
+ "arm": "prune_mag_lw",
+ "task": "T1_mnist_noise",
+ "sigma": 1.0,
+ "seed": 1061617435,
+ "n_params": 300938,
+ "n_params_effective": 4702,
+ "layer_nnz": [
+  3397,
+  872,
+  416,
+  17
+ ],
+ "flops": 600576,
+ "flops_effective": 9404,
+ "epochs": [
+  {
+   "epoch": 0,
+   "phase": "dense",
+   "val_acc": 0.7453
+  },
+  {
+   "epoch": 1,
+   "phase": "dense",
+   "val_acc": 0.7794
+  },
+  {
+   "epoch": 2,
+   "phase": "dense",
+   "val_acc": 0.8015
+  },
+  {
+   "epoch": 3,
+   "phase": "dense",
+   "val_acc": 0.8065
+  },
+  {
+   "epoch": 4,
+   "phase": "dense",
+   "val_acc": 0.8203
+  },
+  {
+   "epoch": 5,
+   "phase": "dense",
+   "val_acc": 0.8247
+  },
+  {
+   "epoch": 6,
+   "phase": "dense",
+   "val_acc": 0.8241
+  },
+  {
+   "epoch": 7,
+   "phase": "dense",
+   "val_acc": 0.8354
+  },
+  {
+   "epoch": 8,
+   "phase": "dense",
+   "val_acc": 0.8395
+  },
+  {
+   "epoch": 9,
+   "phase": "dense",
+   "val_acc": 0.8325
+  },
+  {
+   "epoch": 10,
+   "phase": "dense",
+   "val_acc": 0.8415
+  },
+  {
+   "epoch": 11,
+   "phase": "dense",
+   "val_acc": 0.8413
+  },
+  {
+   "epoch": 12,
+   "phase": "dense",
+   "val_acc": 0.8413
+  },
+  {
+   "epoch": 13,
+   "phase": "dense",
+   "val_acc": 0.8367
+  },
+  {
+   "epoch": 14,
+   "phase": "dense",
+   "val_acc": 0.8479
+  },
+  {
+   "epoch": 15,
+   "phase": "finetune",
+   "val_acc": 0.3448
+  },
+  {
+   "epoch": 16,
+   "phase": "finetune",
+   "val_acc": 0.4509
+  },
+  {
+   "epoch": 17,
+   "phase": "finetune",
+   "val_acc": 0.4705
+  },
+  {
+   "epoch": 18,
+   "phase": "finetune",
+   "val_acc": 0.482
+  },
+  {
+   "epoch": 19,
+   "phase": "finetune",
+   "val_acc": 0.498
+  },
+  {
+   "epoch": 20,
+   "phase": "finetune",
+   "val_acc": 0.4971
+  },
+  {
+   "epoch": 21,
+   "phase": "finetune",
+   "val_acc": 0.5033
+  },
+  {
+   "epoch": 22,
+   "phase": "finetune",
+   "val_acc": 0.509
+  },
+  {
+   "epoch": 23,
+   "phase": "finetune",
+   "val_acc": 0.5156
+  },
+  {
+   "epoch": 24,
+   "phase": "finetune",
+   "val_acc": 0.5082
+  },
+  {
+   "epoch": 25,
+   "phase": "finetune",
+   "val_acc": 0.5169
+  },
+  {
+   "epoch": 26,
+   "phase": "finetune",
+   "val_acc": 0.5149
+  },
+  {
+   "epoch": 27,
+   "phase": "finetune",
+   "val_acc": 0.5154
+  },
+  {
+   "epoch": 28,
+   "phase": "finetune",
+   "val_acc": 0.5157
+  },
+  {
+   "epoch": 29,
+   "phase": "finetune",
+   "val_acc": 0.5198
+  }
+ ],
+ "final": {
+  "epoch": 29,
+  "phase": "finetune",
+  "val_acc": 0.5198
+ },
+ "ablation": null,
+ "env": {
+  "torch": "2.5.1+cpu",
+  "numpy": "2.4.6"
+ },
+ "elapsed_s": 125.86961197853088
+}

@@ -26,4 +26,4 @@ The preregistration was locked and hashed before any outcome was computed, and e
 Later amendments (27 to 30) added the repaired arms and the follow-up comparisons reported in Section 6. Each is committed before its runs.
 
 ## 2b.7 Tests
-The repository carries 29 automated tests in seven files, covering the census against a brute-force reference, the nulls (degree preservation, simplicity, reproducibility), the C engine, the compartment null, the stratification code, and the gradient of the sparse layer in training. The tests ran before each analysis whose outputs are reported here.
+The repository carries 29 automated tests in seven files, covering the census against a brute-force reference, the nulls (degree preservation, simplicity, reproducibility), the C engine, the compartment null, the stratification code, and the gradient of the sparse layer in training.

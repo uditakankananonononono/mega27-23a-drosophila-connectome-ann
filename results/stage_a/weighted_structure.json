@@ -1,0 +1,37 @@
+{
+ "n_edges": 2700513,
+ "n_mutual_pairs": 188724,
+ "n_perm": 200,
+ "labels": [
+  "weighted_reciprocity",
+  "spearman_mutual_pair_weights",
+  "median_w_mutual_edges",
+  "median_w_nonmutual_edges"
+ ],
+ "observed": [
+  0.11570217880030448,
+  0.18925377666622106,
+  10.0,
+  8.0
+ ],
+ "perm_mean": [
+  0.08133986272472983,
+  0.0003038907081080901,
+  8.0,
+  8.0
+ ],
+ "perm_sd": [
+  9.305999858160242e-05,
+  0.0022338951547058957,
+  0.0,
+  0.0
+ ],
+ "z": [
+  369.2490500678767,
+  84.58314865855431,
+  null,
+  null
+ ],
+ "binary_reciprocity": 0.13976899944566087,
+ "note": "medians are integers with zero permutation sd; z undefined for W3, medians reported directly"
+}

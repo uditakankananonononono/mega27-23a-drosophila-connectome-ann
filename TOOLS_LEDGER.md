@@ -20,3 +20,5 @@ scipy stats (Wilcoxon), scikit-learn, torch (Stage D ANN training), matplotlib (
 ## Verified-executed additions (2026-10-02; each imported/run by committed code with result files)
 - polars (Tier-3 NT scan, Stage B), scipy (exact Wilcoxon, Holm inputs, in analyze_g3/g4/a29/a30), torch + torchvision (Stage C training, 2,400 runs), gcc (compiled dp_rewire_c.so, N3 null engine), ctypes (C engine binding), GitHub Actions (Stage C run grid), git (provenance).
 - Not counted: scikit-learn, matplotlib, tqdm (listed in requirements, no committed executed use verified).
+
+Count as of 2026-10-02 night: 17 executed tools (rows 1-9 plus polars, scipy, torch, torchvision, gcc, ctypes, GitHub Actions, git). Gate 40+, not met.

@@ -1,6 +1,8 @@
-# Gate counts audit (2026-10-02), real numbers only
-- Datasets/accessions: 5 (FW-001..004, LIN-001) + derived per-neuropil subgraphs (78, derived, not counted as external). Gate 120+. Gap ~115. Task datasets (MNIST, Fashion, permuted MNIST, CIFAR subset) not yet hash-recorded in the inventory. DATA_INVENTORY.md line count (31) is not an accession count.
-- Executed tools (ledger rows 1-9 plus later pipeline rows): 9 firmly listed + 2 later pipeline rows; torch/scipy/matplotlib were run but not yet ledgered. Gate 40+.
+# Gate counts audit (refreshed 2026-10-02 night), real numbers only
+- Datasets/accessions: 5 (FW-001..004, LIN-001) plus derived subgraphs (78 per-neuropil, derived, not counted as external). Gate 120+. Gap about 115. Not reachable without padding.
+- Executed tools: 17 ledgered (9 in the first list, 8 verified additions). Gate 40+. Gap 23. Not counted: scikit-learn, matplotlib, tqdm (no verified executed use).
 - Tests: 29 test functions in 7 files.
-- Formulas: 10 named in PREREG section on gates (z-score, reciprocity, rich-club, modularity, parameter count, FLOP count, robustness AUC, degradation slope, efficiency ratio, learning-speed); none is yet numbered in a paper methods section. Rich-club, FLOP count and learning-speed were not computed in any result file.
-- Paper: no manuscript yet.
+- Formulas: 11 numbered (F1-F11) in the paper methods and results. Rich-club, FLOP count, learning speed and weighted structure are now computed in committed result files.
+- Analyses completed since the last audit: rich-club (5 and 20 nulls, degree-percentile variant), threshold sweep T=1/10/50, 4-node census, ER and DP null-count sensitivity, weighted structure, FLOPs and learning speed.
+- Paper: draft in paper/, 9,789 words by `cat paper/*.md | wc -w` (includes headings and markup), about 20 pages of text at 500 words/page. Gate 50+ pages of text body. Gap about 30 pages. Not padded.
+- Open: N4 cell-type novelty check (route via signed-in ChatGPT in the browser first; no paid key without her per-action yes).

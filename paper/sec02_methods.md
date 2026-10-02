@@ -19,7 +19,7 @@ For each class c, the enrichment z-score is
 
 where O_c is the observed count and mu_c, sigma_c are the null mean and standard deviation. Empirical p-values were corrected by Benjamini-Hochberg false discovery control at q = 0.05 across all classes. A class is called Tier-1 confirmatory only if it is significant under N1, N2 and N3.
 
-Convergence of the swap chain was checked explicitly on 3 chains at the longer 40-epoch setting. Eight classes with small counts did not converge under that criterion (111D, 111U, 120C, 120D, 120U, 201, 210, 300). Their z-scores are reported as context and never as headline findings.
+Convergence of the swap chain was checked explicitly on 3 chains at 40 swaps per edge. Eight classes with small counts did not converge under that criterion (111D, 111U, 120C, 120D, 120U, 201, 210, 300). Their z-scores are reported as context and never as headline findings.
 
 ## 2.4 Reciprocity, modularity and rich-club
 Reciprocity is the fraction of edges whose reverse edge is also present:

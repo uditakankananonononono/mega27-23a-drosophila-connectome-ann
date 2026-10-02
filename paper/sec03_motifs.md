@@ -1,0 +1,22 @@
+# 3. Results I: Motif Structure of the Fly Brain
+
+## 3.1 Reciprocal pairs are strongly enriched
+The directed triad census shows that the fly connectome is built from closed, mutually connected local structure. The reciprocity of the thresholded graph is r = 0.1398. The mutual-pair triad class (102) is enriched against all three nulls: z = +2,845 against the degree-preserving null and z = +1,355 against the compartment-preserving null. The enrichment appears in all 51 testable neuropils under the degree-preserving null (median z = 47.1). Survival under N3 means the effect cannot be explained solely by neurons sharing a compartment.
+
+## 3.2 Open chains are suppressed
+The complement of this pattern is just as consistent. The single-edge triad (012) is depleted (z_N3 = -1,355; median z = -46.5 across neuropils, depleted in all 51). The three open-chain classes are depleted as well (021D z_N3 = -280, 021U = -288, 021C = -282), in 47 to 49 of 51 neuropils. Triads in this brain are mostly either empty (003, z_N3 = +1,354) or closed. Open two-step chains are rare relative to a degree-matched expectation.
+
+## 3.3 Feedforward loops concentrate in the visual pathway
+The transitive feedforward loop (030T) is enriched against all three nulls (z_N3 = +132; z_N1 = +638). Its enrichment is not uniform. It concentrates in medulla and lamina neuropils and in the gnathal ganglia (ME_L +205, GNG +200, ME_R +190, LA_L +49) and is depleted in the antennal lobes and ellipsoid body. The cyclic triad (030C) behaves differently. It is enriched under N1 and N2 (z = +124) but reverses under N3 (z_N3 = -65). That enrichment was a product of compartment composition, and we report it as organization-dependent, not as a motif.
+
+## 3.4 Modular organization
+The graph has strong community structure. Across 25 seeded restarts, modularity ranged from 0.674 to 0.692 (mean 0.684), with 261 to 265 communities. The partition varies from restart to restart (mean pairwise variation of information 1.22), while its quality does not. We therefore claim modular organization of the graph, not any single partition.
+
+## 3.5 The rich club is absent; hubs are under-connected
+Contrary to the expectation that hubs form a densely interconnected core, normalized rich-club coefficients are about 1 at low degree (rho = 0.97, 1.00, 1.04, 0.98 at k = 10, 25, 50, 100) and then fall below the null (rho = 0.78, 0.58, 0.43, 0.31 at k = 200, 300, 400, 500). High-degree neurons are less connected to one another than their degrees alone predict. The sd across null replicates is below 1% of the mean at every k, so the ratios are stable despite only 5 nulls. We label this analysis exploratory: it was not among the confirmatory tests, and it differs in snapshot, threshold and null definition from the rich-club reported on the v630 snapshot, so we do not frame it as a contradiction.
+
+## 3.6 Neurotransmitter-associated organization
+Of 2.70 million edges, 22.4% are GABA-dominant. Acetylcholine is the most common dominant prediction (2,258,155 edges), followed by GABA (865,318) and glutamate (654,183); octopamine, serotonin and dopamine edges together number 91,171. Weighting by synapse count gives the same ordering. Only 1,051 edges lacked a prediction.
+
+## 3.7 What did not hold
+Several expected effects were not supported. Enrichment profiles do not differ significantly across sensory, associative and motor neuropil classes (permutation p = 0.299), so no class-level architecture claim is made. Post-hoc single-motif class tests were also non-significant (030T p = 0.074). Under the within-neuropil N3 null, 9 neuropil-motif sign flips appeared for class 012, mostly in neuropils where N3 is near-degenerate; these are listed in the results file and treated as Tier 2. Eight small-count classes remain mixing-unresolved and carry no headline claim.

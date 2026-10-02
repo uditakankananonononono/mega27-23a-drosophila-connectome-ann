@@ -9,7 +9,7 @@ Motif enrichment is only as meaningful as the randomization it is measured again
 
 ## 1.2 Contributions
 1. A motif analysis of the 134,181-neuron v783 graph that separates confirmatory structure (mutual pairs, suppression of open chains, feedforward loops) from organization-dependent and mixing-unresolved classes.
-2. Evidence that these patterns hold across 51 neuropils, across edge thresholds of 5, 10 and 50 synapses, and, in an exploratory census, at four-node scale.
+2. Evidence that these patterns hold across 51 neuropils, across edge thresholds of 1, 5, 10 and 50 synapses, and, in an exploratory census, at four-node scale.
 3. A frozen translation of the structures into sparse network architectures, with a control ladder that separates sparsity, degree heterogeneity, degree sequence and wiring.
 4. A set of preregistered, paired experiments that identify what the connectome mask does and does not contribute: a relative robustness effect within matched sparse networks, and no accuracy advantage over a random mask of equal budget.
 

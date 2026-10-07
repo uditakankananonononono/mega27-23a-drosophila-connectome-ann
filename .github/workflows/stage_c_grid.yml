@@ -9,9 +9,6 @@ on:
         description: "Comma-separated job indices 0-26, in priority order (e.g. 6,7,8,3,4,5)"
         required: true
         type: string
-  push:
-    branches:
-      - 'dispatch/*'
 
 permissions:
   contents: write

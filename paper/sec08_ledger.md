@@ -14,6 +14,6 @@ This section lists every preregistered hypothesis about the artificial networks 
 | A30, H30b | Does a half-fly, half-magnitude hybrid beat magnitude pruning? | Mixed. One borderline win (Fashion-MNIST, Holm p = 0.046, shared with the random-mask arm), two ties, two losses. |
 | A30, H30c | Does the fly mask beat magnitude pruning on accuracy? | Not supported. Lost on four conditions (0 of 20), tied on one. |
 
-Two further preregistered elements were not completed. A signed variant using predicted neurotransmitter signs (FLY-MS) was admitted before training but not built, because the predicted-sign export would have been needed, and it would otherwise duplicate the unsigned arm. Cell-type-preserving nulls and cell-type stratification (N4) depend on an annotation source we could not obtain with the credentials available.
+One further preregistered element was not completed. A signed variant using predicted neurotransmitter signs (FLY-MS) was admitted before training but not built, because the predicted-sign export would have been needed, and it would otherwise duplicate the unsigned arm. Cell-type-preserving nulls (N4) were completed after a free public annotation source (ANN-001) was obtained; results are in Section 3.12.
 
 What the ledger shows is one supported result and eight that are not or are mixed. The supported result is the narrow robustness statement of Section 5. No result in the ledger supports an accuracy or cost advantage for the connectome-derived design, and the paper claims none.
